@@ -58,13 +58,115 @@
         .nav-link-custom:hover::after {
             width: 100%;
         }
+
+        .cv-download-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            padding: 4rem 0;
+            margin: 4rem 0;
+        }
+
+        .cv-card {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .cv-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .download-btn {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: none;
+            padding: 1rem 3rem;
+            border-radius: 50px;
+            color: white;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.4);
+        }
+
+        .download-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 15px 40px rgba(102, 126, 234, 0.6);
+        }
+
+        @media (max-width: 768px) {
+            .nav-link-custom::after {
+                display: none;
+            }
+            
+            #home h1 {
+                font-size: 2rem !important;
+            }
+            
+            #home h2 {
+                font-size: 1.3rem !important;
+            }
+
+            .cv-card {
+                padding: 2rem 1.5rem;
+            }
+
+            .download-btn {
+                padding: 0.8rem 2rem;
+                font-size: 1rem;
+            }
+
+            .w-80 {
+                width: 250px !important;
+                height: 250px !important;
+            }
+
+            .text-5xl {
+                font-size: 2rem !important;
+            }
+
+            .text-4xl {
+                font-size: 1.8rem !important;
+            }
+
+            .text-2xl {
+                font-size: 1.5rem !important;
+            }
+        }
+
+        @media (max-width: 576px) {
+            #home h1 {
+                font-size: 1.5rem !important;
+            }
+
+            .cv-card {
+                padding: 1.5rem 1rem;
+            }
+
+            .cv-card h3 {
+                font-size: 1.3rem !important;
+            }
+
+            .cv-card p {
+                font-size: 0.9rem !important;
+            }
+        }
+
+        .nav-link.active {
+            color: #3b82f6 !important;
+            font-weight: 600;
+        }
+        
+        .nav-link.active::after {
+            width: 100%;
+        }
     </style>
 </head>
 <body class="bg-gray-50">
     <!-- Navigation -->
     <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
         <div class="container">
-            <a class="navbar-brand fw-bold text-blue-600" href="#home">Portfolio</a>
+            <a class="navbar-brand fw-bold text-blue-600" href="#home">K• FALL </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -83,6 +185,9 @@
                         <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#projects">Projets</a>
                     </li>
                     <li class="nav-item">
+                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#cv">CV</a>
+                    </li>
+                    <li class="nav-item">
                         <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#contact">Contact</a>
                     </li>
                 </ul>
@@ -91,13 +196,13 @@
     </nav>
 
     <!-- Section Hero -->
-    <section id="home" class="min-h-screen flex items-center bg-white">
+    <section id="home" class="min-h-screen flex items-center bg-white pt-5">
         <div class="container mx-auto px-4">
             <div class="row align-items-center">
                 <div class="col-lg-6">
                     <div class="text-center lg:text-left">
                         <h1 class="text-5xl font-bold text-gray-800 mb-4">
-                            Bonjour, je suis <span class="text-blue-600">KHADIDIATOU FALL</span>
+                            Bonjour, je suis <br> <span class="text-blue-600">KHADIDIATOU FALL</span>
                         </h1>
                         <h2 class="text-2xl text-gray-600 mb-6">
                             <span id="typed-text" class="typing-animation">Développeuse Web Junior</span>
@@ -139,7 +244,7 @@
                 <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
             </div>
             <div class="row align-items-center">
-                <div class="col-lg-6">
+                <div class="col-lg-6 mb-4 mb-lg-0">
                     <div class="bg-white p-8 rounded-lg shadow-lg">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mon parcours</h3>
                         <p class="text-gray-600 mb-4 leading-relaxed">
@@ -152,7 +257,7 @@
                             <div class="text-center p-4 bg-blue-50 rounded-lg">
                                 <i class="fas fa-graduation-cap text-blue-600 text-2xl mb-2"></i>
                                 <h4 class="font-semibold text-gray-800">Formation</h4>
-                                <p class="text-sm text-gray-600">Licence en Génié Logiciel/Formation en Développement web et mobile pour l'obtention d'une certificat pro</p>
+                                <p class="text-sm text-gray-600">Licence en Génie Logiciel/Formation en Développement web et mobile</p>
                             </div>
                             <div class="text-center p-4 bg-green-50 rounded-lg">
                                 <i class="fas fa-code text-green-600 text-2xl mb-2"></i>
@@ -163,36 +268,34 @@
                     </div>
                 </div>
                 <div class="col-lg-6">
-                    <div class="mt-5 lg:mt-0">
-                        <div class="bg-white p-8 rounded-lg shadow-lg">
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Mes valeurs</h3>
-                            <div class="space-y-4">
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-lightbulb text-white"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-800">Innovation</h4>
-                                        <p class="text-gray-600 text-sm">Toujours à la recherche de nouvelles solutions</p>
-                                    </div>
+                    <div class="bg-white p-8 rounded-lg shadow-lg">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Mes valeurs</h3>
+                        <div class="space-y-4">
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-lightbulb text-white"></i>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-users text-white"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-800">Collaboration</h4>
-                                        <p class="text-gray-600 text-sm">La curiosité, l'adaptabilité, l'esprit d'équipe, l'empathie, la ponctualité, la perséverance.</p>
-                                    </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Innovation</h4>
+                                    <p class="text-gray-600 text-sm">Toujours à la recherche de nouvelles solutions</p>
                                 </div>
-                                <div class="flex items-center">
-                                    <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
-                                        <i class="fas fa-rocket text-white"></i>
-                                    </div>
-                                    <div>
-                                        <h4 class="font-semibold text-gray-800">Centres d'intéret</h4>
-                                        <p class="text-gray-600 text-sm">Lecture, Randonnée, Cuisine, Musique</p>
-                                    </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-users text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Collaboration</h4>
+                                    <p class="text-gray-600 text-sm">Adaptabilité, Esprit d'équipe, Empathie, Ponctualité</p>
+                                </div>
+                            </div>
+                            <div class="flex items-center">
+                                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
+                                    <i class="fas fa-rocket text-white"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold text-gray-800">Centres d'intérêt</h4>
+                                    <p class="text-gray-600 text-sm">Lecture, Randonnée, Cuisine, Musique</p>
                                 </div>
                             </div>
                         </div>
@@ -210,9 +313,9 @@
                 <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
             </div>
             <div class="row">
-                <div class="col-lg-6">
-                    <div class="bg-gray-50 p-8 rounded-lg">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Technologies Frontend</h3>
+                <div class="col-lg-4 mb-4">
+                    <div class="bg-gray-50 p-8 rounded-lg h-100">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Frontend</h3>
                         <div class="space-y-4">
                             <div class="skill-item">
                                 <div class="flex justify-between mb-2">
@@ -229,16 +332,7 @@
                                     <span class="text-green-600">65%</span>
                                 </div>
                                 <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-green-600" style="width: 0%" data-width="85"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">WordPress</span>
-                                    <span class="text-blue-500">50%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-blue-500" style="width: 0%" data-width="75"></div>
+                                    <div class="skill-progress bg-green-600" style="width: 0%" data-width="65"></div>
                                 </div>
                             </div>
                             <div class="skill-item">
@@ -250,101 +344,154 @@
                                     <div class="skill-progress bg-teal-600" style="width: 0%" data-width="80"></div>
                                 </div>
                             </div>
-                          
-
                             <div class="skill-item">
                                 <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">Typescript</span>
-                                    <span class="text-yellow-600">50%</span>
+                                    <span class="font-medium text-gray-700">TypeScript</span>
+                                    <span class="text-yellow-600">70%</span>
                                 </div>
                                 <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-yellow-600" style="width: 0%" data-width="90"></div>
+                                    <div class="skill-progress bg-yellow-600" style="width: 0%" data-width="70"></div>
                                 </div>
                             </div>
-                              <div class="skill-item">
+                             <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-grey-700">ReactJS</span>
+                                    <span class="text-pink-600">50%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-pink-600" style="width: 0%" data-width="70"></div>
+                                </div>
+                            </div> <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">Express</span>
+                                    <span class="text-orange-600">70%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="70"></div>
+                                </div>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="bg-gray-50 p-8 rounded-lg h-100">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Backend</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">PHP</span>
+                                    <span class="text-purple-600">60%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-purple-600" style="width: 0%" data-width="60"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">MySQL</span>
+                                    <span class="text-orange-600">75%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">Node.js</span>
+                                    <span class="text-green-500">65%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-green-500" style="width: 0%" data-width="65"></div>
+                                </div>
+                            </div>
+                         
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 mb-4">
+                    <div class="bg-gray-50 p-8 rounded-lg h-100">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Outils</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
                                 <div class="flex justify-between mb-2">
                                     <span class="font-medium text-gray-700">FIGMA</span>
-                                    <span class="text-red-600">90%</span>
+                                    <span class="text-purple-600">60%</span>
                                 </div>
                                 <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-red-600" style="width: 0%" data-width="90"></div>
+                                    <div class="skill-progress bg-purple-600" style="width: 0%" data-width="60"></div>
                                 </div>
                             </div>
-                            
-                        </div>
-                    </div>
-                </div>
-
-                <div class="col-lg-6">
-                    <div class="mt-5 lg:mt-0">
-                        <div class="bg-gray-50 p-8 rounded-lg">
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Outils</h3>
-                            <div class="space-y-4">
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium text-gray-700">FIGMA</span>
-                                        <span class="text-purple-600">60%</span>
-                                    </div>
-                                    <div class="skill-bar bg-gray-200">
-                                        <div class="skill-progress bg-purple-600" style="width: 0%" data-width="70"></div>
-                                    </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">CANVA</span>
+                                    <span class="text-orange-600">75%</span>
                                 </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium text-gray-700">CANVA</span>
-                                        <span class="text-orange-600">75%</span>
-                                    </div>
-                                    <div class="skill-bar bg-gray-200">
-                                        <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
-                                    </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
                                 </div>
-                              
-                            
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">WordPress</span>
+                                    <span class="text-blue-500">50%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-blue-500" style="width: 0%" data-width="50"></div>
+                                </div>
+                            </div>
+                               <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">Git/GitHub</span>
+                                    <span class="text-gray-600">65%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-gray-600" style="width: 0%" data-width="65"></div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
-
-                <div class="col-lg-6">
-                    <div class="mt-5 lg:mt-0">
-                        <div class="bg-gray-50 p-8 rounded-lg">
-                            <h3 class="text-2xl font-semibold text-gray-800 mb-6">Technologies Backend</h3>
-                            <div class="space-y-4">
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium text-gray-700">PHP</span>
-                                        <span class="text-purple-600">60%</span>
-                                    </div>
-                                    <div class="skill-bar bg-gray-200">
-                                        <div class="skill-progress bg-purple-600" style="width: 0%" data-width="70"></div>
-                                    </div>
+                  <div class="col-lg-4 mb-4">
+                    <div class="bg-gray-50 p-8 rounded-lg h-100">
+                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Base de données</h3>
+                        <div class="space-y-4">
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">SQL</span>
+                                    <span class="text-purple-600">80%</span>
                                 </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium text-gray-700">MySQL</span>
-                                        <span class="text-orange-600">75%</span>
-                                    </div>
-                                    <div class="skill-bar bg-gray-200">
-                                        <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
-                                    </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-purple-600" style="width: 0%" data-width="60"></div>
                                 </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium text-gray-700">Node.js</span>
-                                        <span class="text-green-500">65%</span>
-                                    </div>
-                                    <div class="skill-bar bg-gray-200">
-                                        <div class="skill-progress bg-green-500" style="width: 0%" data-width="65"></div>
-                                    </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">PostgreSQL</span>
+                                    <span class="text-orange-600">65%</span>
                                 </div>
-                                <div class="skill-item">
-                                    <div class="flex justify-between mb-2">
-                                        <span class="font-medium text-gray-700">Git/GitHub</span>
-                                        <span class="text-gray-600">65%</span>
-                                    </div>
-                                    <div class="skill-bar bg-gray-200">
-                                        <div class="skill-progress bg-gray-600" style="width: 0%" data-width="85"></div>
-                                    </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
+                                </div>
+                            </div>
+                            <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">JSON-Server</span>
+                                    <span class="text-blue-500">70%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-blue-500" style="width: 0%" data-width="50"></div>
+                                </div>
+                            </div>
+                               <div class="skill-item">
+                                <div class="flex justify-between mb-2">
+                                    <span class="font-medium text-gray-700">Prisma</span>
+                                    <span class="text-gray-600">85%</span>
+                                </div>
+                                <div class="skill-bar bg-gray-200">
+                                    <div class="skill-progress bg-gray-600" style="width: 0%" data-width="65"></div>
                                 </div>
                             </div>
                         </div>
@@ -362,62 +509,6 @@
                 <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
             </div>
             <div class="flex justify-center items-center">
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-lg card-hover h-100">
-                        <div class="card-body p-6">
-                            <div class="text-center mb-4">
-                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-shopping-cart text-blue-600 text-2xl"></i>
-                                </div>
-                                <h3 class="card-title font-bold text-gray-800">E-commerce</h3>
-                            </div>
-                            <p class="card-text text-gray-600 mb-4">
-                                Site e-commerce complet avec panier, système de paiement et interface d'administration.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge bg-blue-600 text-white">PHP</span>
-                                <span class="badge bg-green-600 text-white">MySQL</span>
-                                <span class="badge bg-orange-600 text-white">Bootstrap</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <a href="#" class="btn btn-primary btn-sm flex-1">
-                                    <i class="fas fa-eye me-1"></i>Voir
-                                </a>
-                                <a href="#" class="btn btn-outline-primary btn-sm flex-1">
-                                    <i class="fab fa-github me-1"></i>Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
-                <!-- <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-lg card-hover h-100">
-                        <div class="card-body p-6">
-                            <div class="text-center mb-4">
-                                <div class="w-16 h-16 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-tasks text-green-600 text-2xl"></i>
-                                </div>
-                                <h3 class="card-title font-bold text-gray-800">Todo App</h3>
-                            </div>
-                            <p class="card-text text-gray-600 mb-4">
-                                Application de gestion de tâches avec interface responsive et stockage local.
-                            </p>
-                            <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge bg-yellow-600 text-white">JavaScript</span>
-                                <span class="badge bg-blue-600 text-white">React</span>
-                                <span class="badge bg-teal-600 text-white">TailwindCss</span>
-                            </div>
-                            <div class="flex gap-2">
-                                <a href="#" class="btn btn-success btn-sm flex-1">
-                                    <i class="fas fa-eye me-1"></i>Voir
-                                </a>
-                                <a href="#" class="btn btn-outline-success btn-sm flex-1">
-                                    <i class="fab fa-github me-1"></i>Code
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div> -->
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card border-0 shadow-lg card-hover h-100">
                         <div class="card-body p-6">
@@ -425,23 +516,57 @@
                                 <div class="w-16 h-16 bg-purple-100 rounded-full flex items-center justify-center mx-auto mb-3">
                                     <i class="fas fa-blog text-purple-600 text-2xl"></i>
                                 </div>
-                                <h3 class="card-title font-bold text-gray-800">Voir dans mon github</h3>
+                                <h3 class="card-title font-bold text-gray-800">Voir dans mon GitHub</h3>
                             </div>
                             <p class="card-text text-gray-600 mb-4">
                                 Vous trouverez ici l'ensemble des projets académiques réalisés
                             </p>
-                            <!-- <div class="flex flex-wrap gap-2 mb-4">
-                                <span class="badge bg-purple-600 text-white">PHP</span>
-                                <span class="badge bg-green-600 text-white">MySQL</span>
-                                <span class="badge bg-blue-600 text-white">CSS3</span>
-                            </div> -->
                             <div class="flex gap-2">
-                              
-                                <a href="https://github.com/KhadidiatouF" class="btn btn-outline-purple btn-sm flex-1" style="border-color: #7c3aed; color: #7c3aed;">
+                                <a href="https://github.com/KhadidiatouF" target="_blank" class="btn btn-outline-purple btn-sm flex-1" style="border-color: #7c3aed; color: #7c3aed;">
                                     <i class="fab fa-github me-1"></i>MON COMPTE GITHUB
                                 </a>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section Téléchargement CV -->
+    <section id="cv" class="cv-download-section">
+        <div class="container mx-auto px-4">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="cv-card text-center">
+                        <div class="mb-4">
+                            <i class="fas fa-file-pdf text-purple-600" style="font-size: 4rem;"></i>
+                        </div>
+                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Téléchargez mon CV</h3>
+                        <p class="text-gray-600 mb-5 text-lg">
+                            Découvrez mon parcours complet, mes compétences et mes réalisations en téléchargeant mon curriculum vitae.
+                        </p>
+                        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center mb-4">
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="text-gray-700">Format PDF</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="text-gray-700">À jour</span>
+                            </div>
+                            <div class="d-flex align-items-center">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <span class="text-gray-700">Téléchargement instantané</span>
+                            </div>
+                        </div>
+                        <button class="download-btn" onclick="downloadCV()">
+                            <i class="fas fa-download me-2"></i>Télécharger mon CV
+                        </button>
+                        <p class="text-gray-500 mt-3 mb-0" style="font-size: 0.9rem;">
+                            <i class="fas fa-info-circle me-1"></i>
+                            Le téléchargement commencera automatiquement
+                        </p>
                     </div>
                 </div>
             </div>
@@ -457,7 +582,7 @@
                 <p class="text-lg text-gray-600">Intéressé par mon profil ? N'hésitez pas à me contacter !</p>
             </div>
             <div class="row">
-                <div class="col-lg-8 mx-auto">
+                <div class="col-lg-10 mx-auto">
                     <div class="row">
                         <div class="col-md-4 mb-4">
                             <div class="text-center p-6 bg-gray-50 rounded-lg h-100">
@@ -465,7 +590,7 @@
                                     <i class="fas fa-envelope text-white text-xl"></i>
                                 </div>
                                 <h4 class="font-semibold text-gray-800 mb-2">Email</h4>
-                                <p class="text-gray-600">kfall2104@gmail.com</p>
+                                <a href="mailto:kfall2104@gmail.com" class="text-blue-600">kfall2104@gmail.com</a>
                             </div>
                         </div>
                       
@@ -475,73 +600,40 @@
                                     <i class="fab fa-linkedin text-white text-xl"></i>
                                 </div>
                                 <h4 class="font-semibold text-gray-800 mb-2">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/khadidiatou-fall-b49340214/" class="text-purple-600">Mon LinkedIn</a>
+                                <a href="https://www.linkedin.com/in/khadidiatou-fall-b49340214/" target="_blank" class="text-purple-600">Mon LinkedIn</a>
                             </div>
                         </div>
-                         <div class="col-md-4 mb-4">
+                         
+                        <div class="col-md-4 mb-4">
                             <div class="text-center p-6 bg-gray-50 rounded-lg h-100">
                                 <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="fab fa-github me-1 text-white text-xl"></i>
+                                    <i class="fab fa-github text-white text-xl"></i>
                                 </div>
                                 <h4 class="font-semibold text-gray-800 mb-2">GitHub</h4>
-                                <a href="https://github.com/KhadidiatouF" class="text-green-600">Mon GitHub</a>
+                                <a href="https://github.com/KhadidiatouF" target="_blank" class="text-green-600">Mon GitHub</a>
                             </div>
                         </div>
                     </div>
-                    <!-- <div class="mt-8">
-                        <form class="bg-gray-50 p-8 rounded-lg shadow-lg">
-                            <div class="row">
-                                <div class="col-md-6 mb-4">
-                                    <input type="text" class="form-control form-control-lg" placeholder="Votre nom" required>
-                                </div>
-                                <div class="col-md-6 mb-4">
-                                    <input type="email" class="form-control form-control-lg" placeholder="Votre email" required>
-                                </div>
-                            </div>
-                            <div class="mb-4">
-                                <input type="text" class="form-control form-control-lg" placeholder="Sujet" required>
-                            </div>
-                            <div class="mb-4">
-                                <textarea class="form-control" rows="5" placeholder="Votre message" required></textarea>
-                            </div>
-                            <div class="text-center">
-                                <button type="submit" class="btn btn-primary btn-lg px-8 py-3 rounded-full">
-                                    <i class="fas fa-paper-plane me-2"></i>Envoyer le message
-                                </button>
-                            </div>
-                        </form>
-                    </div> -->
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <!-- <footer class="bg-gray-800 text-white py-8">
-        <div class="container mx-auto px-4">
-            <div class="row align-items-center">
-                <div class="col-md-6">
-                    <p class="mb-0">&copy; 2024 Votre Nom. Tous droits réservés.</p>
-                </div>
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center justify-content-md-end gap-3">
-                        <a href="#" class="text-white hover:text-blue-400 transition-colors">
-                            <i class="fab fa-github text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-blue-400 transition-colors">
-                            <i class="fab fa-linkedin text-2xl"></i>
-                        </a>
-                        <a href="#" class="text-white hover:text-blue-400 transition-colors">
-                            <i class="fab fa-twitter text-2xl"></i>
-                        </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer> -->
-
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script>
+        // Fonction de téléchargement du CV
+        function downloadCV() {
+            // Afficher un message à l'utilisateur
+            
+            // Code de téléchargement (à activer une fois le CV uploadé)
+            const link = document.createElement('a');
+            link.href = '/assets/cvMAJ.pdf'; // Remplacer par le chemin de votre CV
+            link.download = 'CV_KHADIDIATOU_FALL.pdf';
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+        }
+
         // Animation des barres de compétences
         function animateSkillBars() {
             const skillBars = document.querySelectorAll('.skill-progress');
@@ -605,6 +697,14 @@
                         behavior: 'smooth',
                         block: 'start'
                     });
+                    
+                    // Fermer le menu mobile après le clic
+                    const navbarCollapse = document.getElementById('navbarNav');
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                            toggle: true
+                        });
+                    }
                 }
             });
         });
@@ -673,135 +773,6 @@
                 document.querySelector('#home').style.transform = 'translateY(0)';
             }, 100);
         });
-
-        // Formulaire de contact
-        document.querySelector('form').addEventListener('submit', function(e) {
-            e.preventDefault();
-            
-            // Simulation d'envoi
-            const button = this.querySelector('button[type="submit"]');
-            const originalText = button.innerHTML;
-            
-            button.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Envoi en cours...';
-            button.disabled = true;
-            
-            setTimeout(() => {
-                button.innerHTML = '<i class="fas fa-check me-2"></i>Message envoyé !';
-                button.classList.remove('btn-primary');
-                button.classList.add('btn-success');
-                
-                setTimeout(() => {
-                    button.innerHTML = originalText;
-                    button.disabled = false;
-                    button.classList.remove('btn-success');
-                    button.classList.add('btn-primary');
-                    this.reset();
-                }, 2000);
-            }, 1500);
-        });
-
-        // Parallax effect léger pour le hero
-        window.addEventListener('scroll', () => {
-            const scrolled = window.pageYOffset;
-            const parallax = document.querySelector('#home');
-            const speed = scrolled * 0.5;
-            
-            if (parallax) {
-                parallax.style.transform = `translateY(${speed}px)`;
-            }
-        });
-
-        // Animation des compteurs (si vous voulez ajouter des statistiques)
-        function animateCounters() {
-            const counters = document.querySelectorAll('.counter');
-            
-            counters.forEach(counter => {
-                const target = parseInt(counter.getAttribute('data-target'));
-                const count = parseInt(counter.innerText);
-                const increment = target / 200;
-                
-                if (count < target) {
-                    counter.innerText = Math.ceil(count + increment);
-                    setTimeout(() => animateCounters(), 1);
-                } else {
-                    counter.innerText = target;
-                }
-            });
-        }
-
-        // Effet de particules pour le background (optionnel)
-        function createParticles() {
-            const particlesContainer = document.createElement('div');
-            particlesContainer.className = 'particles-container';
-            particlesContainer.style.cssText = `
-                position: fixed;
-                top: 0;
-                left: 0;
-                width: 100%;
-                height: 100%;
-                pointer-events: none;
-                z-index: -1;
-            `;
-            
-            document.body.appendChild(particlesContainer);
-            
-            for (let i = 0; i < 50; i++) {
-                const particle = document.createElement('div');
-                particle.style.cssText = `
-                    position: absolute;
-                    width: 2px;
-                    height: 2px;
-                    background: rgba(59, 130, 246, 0.5);
-                    border-radius: 50%;
-                    animation: float ${Math.random() * 3 + 2}s ease-in-out infinite;
-                    left: ${Math.random() * 100}%;
-                    top: ${Math.random() * 100}%;
-                `;
-                particlesContainer.appendChild(particle);
-            }
-        }
-
-        // CSS pour l'animation des particules
-        const style = document.createElement('style');
-        style.textContent = `
-            @keyframes float {
-                0%, 100% {
-                    transform: translateY(0px) rotate(0deg);
-                    opacity: 1;
-                }
-                50% {
-                    transform: translateY(-20px) rotate(180deg);
-                    opacity: 0.5;
-                }
-            }
-            
-            .nav-link.active {
-                color: #3b82f6 !important;
-                font-weight: 600;
-            }
-            
-            .nav-link.active::after {
-                width: 100%;
-            }
-            
-            @media (max-width: 768px) {
-                .nav-link-custom::after {
-                    display: none;
-                }
-                
-                #home h1 {
-                    font-size: 2.5rem !important;
-                }
-                
-                #home h2 {
-                    font-size: 1.5rem !important;
-                }
-            }
-        `;
-        document.head.appendChild(style);
-
-        // Initialiser les particules (décommentez si vous voulez l'effet)
-        // createParticles();
     </script>
 </body>
 </html>
