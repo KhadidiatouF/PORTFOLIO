@@ -5,15 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Portfolio - KHADIDIATOU FALL</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-    
-    <style>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
-    @keyframes grow {
-      from { width: 0; }
-      to { width: 100%; }
-    }
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        
+
+        body {
+            background-color: #f9fafb;
+        }
+
+        .navbar {
+            position: sticky !important;
+            top: 0 !important;
+            z-index: 9999 !important;
+            background-color: white !important;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+        }
+
+        @keyframes grow {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+
         .typing-animation {
             border-right: 2px solid #3b82f6;
             animation: blink 1s infinite;
@@ -49,6 +68,9 @@
             position: relative;
             transition: color 0.3s ease;
         }
+        .nav-link {
+  color: #1f2937 !important; /* gris foncé visible */
+}
         
         .nav-link-custom::after {
             content: '';
@@ -166,13 +188,66 @@
         .nav-link.active::after {
             width: 100%;
         }
+
+        /* Animation autour de la photo */
+        @keyframes rotateBorder {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        @keyframes pulse {
+            0%, 100% {
+                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+            }
+            50% {
+                box-shadow: 0 0 0 15px rgba(59, 130, 246, 0);
+            }
+        }
+
+        .photo-container {
+            position: relative;
+            display: inline-block;
+        }
+
+        .photo-border {
+            position: absolute;
+            top: -15px;
+            left: -15px;
+            right: -15px;
+            bottom: -15px;
+            border: 3px solid transparent;
+            border-image: linear-gradient(45deg, #f63b3b, #667eea, #3b82f6) 1;
+            border-radius: 50%;
+            animation: rotateBorder 4s linear infinite;
+        }
+
+        .photo-inner {
+            position: relative;
+            animation: pulse 3s infinite;
+        }
+
+        @media (min-width: 992px) {
+  .navbar-collapse {
+    display: flex !important;
+    justify-content: flex-end;
+  }
+  .navbar-nav {
+    flex-direction: row !important;
+    gap: 1.5rem;
+  }
+}
+
     </style>
 </head>
 <body class="bg-gray-50">
-    <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg fixed-top bg-white shadow-sm">
+    <!-- Navigation - TOUT EN HAUT -->
+    <nav class="navbar navbar-expand-lg">
         <div class="container">
-            <a class="navbar-brand fw-bold text-blue-600" href="#home">K• FALL </a>
+            <a class="navbar-brand fw-bold text-blue-600" href="#home">K• FALL</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -228,9 +303,10 @@
                 </div>
                 <div class="col-lg-6">
                     <div class="text-center mt-5 lg:mt-0">
-                        <div class="relative inline-block">
-                            <div class="w-80 h-80 bg-blue-100 rounded-full flex items-center justify-center mx-auto">
-                                <i class="fas fa-code text-blue-600 text-8xl"></i>
+                        <div class="photo-container">
+                            <div class="photo-border"></div>
+                            <div class="h-80 bg-blue-100 rounded-full flex items-center justify-center mx-auto photo-inner">
+                                <img class="rounded-full mt-[10rem] w-[40rem]" src="assets/gemi.png" alt="">
                             </div>
                             <div class="absolute -top-4 -right-4 bg-red-400 text-white p-3 rounded-full animate-bounce">
                                 <i class="fas fa-heart"></i>
@@ -359,7 +435,7 @@
                                     <div class="skill-progress bg-yellow-600" style="width: 0%" data-width="70"></div>
                                 </div>
                             </div>
-                             <div class="skill-item">
+                            <div class="skill-item">
                                 <div class="flex justify-between mb-2">
                                     <span class="font-medium text-grey-700">ReactJS</span>
                                     <span class="text-pink-600">50%</span>
@@ -367,7 +443,8 @@
                                 <div class="skill-bar bg-gray-200">
                                     <div class="skill-progress bg-pink-600" style="width: 0%" data-width="70"></div>
                                 </div>
-                            </div> <div class="skill-item">
+                            </div>
+                            <div class="skill-item">
                                 <div class="flex justify-between mb-2">
                                     <span class="font-medium text-gray-700">Express</span>
                                     <span class="text-orange-600">70%</span>
@@ -376,7 +453,6 @@
                                     <div class="skill-progress bg-orange-600" style="width: 0%" data-width="70"></div>
                                 </div>
                             </div>
-                            
                         </div>
                     </div>
                 </div>
@@ -412,7 +488,6 @@
                                     <div class="skill-progress bg-green-500" style="width: 0%" data-width="65"></div>
                                 </div>
                             </div>
-                         
                         </div>
                     </div>
                 </div>
@@ -448,7 +523,7 @@
                                     <div class="skill-progress bg-blue-500" style="width: 0%" data-width="50"></div>
                                 </div>
                             </div>
-                               <div class="skill-item">
+                            <div class="skill-item">
                                 <div class="flex justify-between mb-2">
                                     <span class="font-medium text-gray-700">Git/GitHub</span>
                                     <span class="text-gray-600">65%</span>
@@ -460,7 +535,8 @@
                         </div>
                     </div>
                 </div>
-                  <div class="col-lg-4 mb-4">
+
+                <div class="col-lg-4 mb-4">
                     <div class="bg-gray-50 p-8 rounded-lg h-100">
                         <h3 class="text-2xl font-semibold text-gray-800 mb-6">Base de données</h3>
                         <div class="space-y-4">
@@ -491,7 +567,7 @@
                                     <div class="skill-progress bg-blue-500" style="width: 0%" data-width="50"></div>
                                 </div>
                             </div>
-                               <div class="skill-item">
+                            <div class="skill-item">
                                 <div class="flex justify-between mb-2">
                                     <span class="font-medium text-gray-700">Prisma</span>
                                     <span class="text-gray-600">85%</span>
@@ -579,160 +655,146 @@
         </div>
     </section>
 
-  <!-- ====== SECTION PROJETS (2) AVEC SLIDER ====== -->
-  <section class="py-16 px-6 bg-white">
-    <h2 class="text-2xl font-bold text-center text-blue-600 mb-10">Quelque Réalisations en Images</h2>
+    <!-- ====== SECTION PROJETS (2) AVEC SLIDER ====== -->
+    <section class="py-16 px-6 bg-white">
+        <h2 class="text-2xl font-bold text-center text-blue-600 mb-10">Quelque Réalisations en Images</h2>
 
-    <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+        <div class="max-w-5xl mx-auto grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="slider-projet1">
+                        <img src="assets/gesEntreprise/E1.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 7.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 8.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 9.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 10.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 11.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 12.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 13.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesEntreprise/image copy 14.png" class="w-full h-56 object-cover flex-shrink-0" />
+                    </div>
+                    <button onclick="prevSlide('projet1')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10094;
+                    </button>
+                    <button onclick="nextSlide('projet1')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10095;
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Entreprise</h3>
+                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion d'entreprises, d'employés, des pointages et des congés. <br> avec Tailwind, TypeScript, REACT et NodeJS</p>
+                    <a href="https://github.com/KhadidiatouF/GESTION_ENTREPRISE_" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
+                </div>
+            </div>
 
-       <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-        <div class="relative overflow-hidden">
-          <div class="flex transition-transform duration-500" id="slider-projet1">
-            <img src="assets/gesEntreprise/E1.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 7.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 8.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 9.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 10.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 11.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 12.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 13.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesEntreprise/image copy 14.png" class="w-full h-56 object-cover flex-shrink-0" />
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="slider-projet2">
+                        <img src="assets/gesCargo/image.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesCargo/image copy 7&.png" class="w-full h-56 object-cover flex-shrink-0" />
+                    </div>
+                    <button onclick="prevSlide('projet2')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10094;
+                    </button>
+                    <button onclick="nextSlide('projet2')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10095;
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Cargaison</h3>
+                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des colis envoyés par voix maritimes, aériens et terrestres et leurs suivis. <br> Avec Tailwind, TypeScript et Json server</p>
+                    <a href="https://github.com/KhadidiatouF/GesCargo.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
+                </div>
+            </div>
 
-          </div>
-          <button onclick="prevSlide('projet1')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10094;
-          </button>
-          <button onclick="nextSlide('projet1')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10095;
-          </button>
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="slider-projet3">
+                        <img src="assets/gesTache/image.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesTache/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesTache/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/gesTache/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
+                    </div>
+                    <button onclick="prevSlide('projet3')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10094;
+                    </button>
+                    <button onclick="nextSlide('projet3')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10095;
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion des Taches</h3>
+                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des taches (TODOLIST) <br> Avec NODEJS, Tailwind et REACT.</p>
+                    <a href="https://github.com/KhadidiatouF/BackFrontTODO.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="slider-projet4">
+                        <img src="assets/Maxit/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 7.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 8.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 9.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 10.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 11.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 12.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Maxit/image copy 13.png" class="w-full h-56 object-cover flex-shrink-0" />
+                    </div>
+                    <button onclick="prevSlide('projet4')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10094;
+                    </button>
+                    <button onclick="nextSlide('projet4')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10095;
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Des Apprenants</h3>
+                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des apprenants de ODC <br> Avec Php et Json Server.</p>
+                    <a href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
+                </div>
+            </div>
+
+            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
+                <div class="relative overflow-hidden">
+                    <div class="flex transition-transform duration-500" id="slider-projet5">
+                        <img src="assets/Whatsapp/image.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Whatsapp/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Whatsapp/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Whatsapp/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Whatsapp/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
+                        <img src="assets/Whatsapp/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
+                    </div>
+                    <button onclick="prevSlide('projet5')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10094;
+                    </button>
+                    <button onclick="nextSlide('projet5')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
+                        &#10095;
+                    </button>
+                </div>
+                <div class="p-6">
+                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Clonage Whatsapp</h3>
+                    <p class="text-gray-600 text-sm mb-4">Application complète le clonage de l'application whatsapp.</p>
+                    <a href="https://github.com/KhadidiatouF/PROJET-WHATSAPPNEW.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
+                </div>
+            </div>
         </div>
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Entreprise</h3>
-          <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion d'entreprises, d'employés, des pointages et des congés. <br> avec Tailwind, TypeScript, REACT et NodeJS</p>
-          <a href="https://github.com/KhadidiatouF/GESTION_ENTREPRISE_" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-        </div>
-      </div>
-
-       <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-        <div class="relative overflow-hidden">
-          <div class="flex transition-transform duration-500" id="slider-projet2">
-            <img src="assets/gesCargo/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesCargo/image copy 7&.png" class="w-full h-56 object-cover flex-shrink-0" />
-
-
-          </div>
-          <button onclick="prevSlide('projet2')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10094;
-          </button>
-          <button onclick="nextSlide('projet2')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10095;
-          </button>
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Cargaison</h3>
-          <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des colis envoyés par voix maritimes, aériens et terrestres et leurs suivis. <br> Avec Tailwind, TypeScript et Json server</p>
-          <a href="https://github.com/KhadidiatouF/GesCargo.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-        </div>
-      </div>
-
-
-
-       <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-        <div class="relative overflow-hidden">
-          <div class="flex transition-transform duration-500" id="slider-projet3">
-            <img src="assets/gesTache/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesTache/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesTache/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/gesTache/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-
-          </div>
-          <button onclick="prevSlide('projet3')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10094;
-          </button>
-          <button onclick="nextSlide('projet3')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10095;
-          </button>
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion des Taches</h3>
-          <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des taches (TODOLIST) <br> Avec NODEJS, Tailwind et REACT.</p>
-          <a href="https://github.com/KhadidiatouF/BackFrontTODO.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-        </div>
-      </div>
-
-
-       <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-        <div class="relative overflow-hidden">
-          <div class="flex transition-transform duration-500" id="slider-projet4">
-            <img src="assets/Maxit/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 7.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 8.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 9.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 10.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 11.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 12.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Maxit/image copy 13.png" class="w-full h-56 object-cover flex-shrink-0" />
-
-
-          </div>
-          <button onclick="prevSlide('projet4')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10094;
-          </button>
-          <button onclick="nextSlide('projet4')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10095;
-          </button>
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Des Apprenants</h3>
-          <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des apprenants de ODC <br> Avec Php et Json Server.</p>
-          <a href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-        </div>
-      </div>
-
-
-       <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-        <div class="relative overflow-hidden">
-          <div class="flex transition-transform duration-500" id="slider-projet5">
-            <img src="assets/Whatsapp/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Whatsapp/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Whatsapp/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Whatsapp/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Whatsapp/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-            <img src="assets/Whatsapp/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-
-          </div>
-          <button onclick="prevSlide('projet5')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10094;
-          </button>
-          <button onclick="nextSlide('projet5')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-            &#10095;
-          </button>
-        </div>
-        <div class="p-6">
-          <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Clonage Whatsapp</h3>
-          <p class="text-gray-600 text-sm mb-4">Application complète le clonage de l'application whatsapp.</p>
-          <a href="https://github.com/KhadidiatouF/PROJET-WHATSAPPNEW.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-        </div>
-      </div>
-    </div>
-  </section>
-
-
+    </section>
 
     <!-- Section Contact -->
     <section id="contact" class="py-20 bg-white">
@@ -782,7 +844,6 @@
 
     <script>
         function downloadCV() {
-            
             const link = document.createElement('a');
             link.href = '/assets/cv_KHADIJA.pdf'; 
             link.download = 'CV_KHADIDIATOU_FALL.pdf';
@@ -924,36 +985,36 @@
                 document.querySelector('#home').style.transform = 'translateY(0)';
             }, 100);
         });
-          const sliders = {};
+
+        const sliders = {};
     
-    function nextSlide(id) {
-      const slider = document.getElementById(`slider-${id}`);
-      const total = slider.children.length;
-      sliders[id] = (sliders[id] || 0) + 1;
-      if (sliders[id] >= total) sliders[id] = 0;
-      slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
-    }
+        function nextSlide(id) {
+            const slider = document.getElementById(`slider-${id}`);
+            const total = slider.children.length;
+            sliders[id] = (sliders[id] || 0) + 1;
+            if (sliders[id] >= total) sliders[id] = 0;
+            slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
+        }
 
-    function prevSlide(id) {
-      const slider = document.getElementById(`slider-${id}`);
-      const total = slider.children.length;
-      sliders[id] = (sliders[id] || 0) - 1;
-      if (sliders[id] < 0) sliders[id] = total - 1;
-      slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
-    }
+        function prevSlide(id) {
+            const slider = document.getElementById(`slider-${id}`);
+            const total = slider.children.length;
+            sliders[id] = (sliders[id] || 0) - 1;
+            if (sliders[id] < 0) sliders[id] = total - 1;
+            slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
+        }
 
-    // setInterval(() => nextSlide('projet1'), 5000);
-    setInterval(() => {
-    nextSlide('projet1');
-    nextSlide('projet2');
-    nextSlide('projet3');
-    nextSlide('projet4');
-    nextSlide('projet5');
-    }, 5000);
-
-
+        setInterval(() => {
+            nextSlide('projet1');
+            nextSlide('projet2');
+            nextSlide('projet3');
+            nextSlide('projet4');
+            nextSlide('projet5');
+        }, 5000);
     </script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
