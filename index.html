@@ -231,14 +231,35 @@
         }
 
         @media (min-width: 992px) {
-  .navbar-collapse {
-    display: flex !important;
-    justify-content: flex-end;
-  }
-  .navbar-nav {
-    flex-direction: row !important;
-    gap: 1.5rem;
-  }
+    .navbar-collapse {
+        display: flex !important;
+        visibility: visible !important;
+        justify-content: flex-end;
+    }
+    .navbar-nav {
+        flex-direction: row !important;
+        gap: 1.5rem;
+    }
+    .navbar-toggler {
+        display: none !important;
+    }
+}
+
+/* Styles pour le menu burger sur mobile */
+@media (max-width: 991px) {
+    .navbar-collapse {
+        background: white;
+        padding: 1rem;
+        margin-top: 0.5rem;
+        border-radius: 0.5rem;
+        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    }
+    .navbar-nav {
+        gap: 0.5rem;
+    }
+    .nav-link {
+        padding: 0.5rem 1rem !important;
+    }
 }
 
     </style>
@@ -248,10 +269,10 @@
     <nav class="navbar navbar-expand-lg">
         <div class="container">
             <a class="navbar-brand fw-bold text-blue-600" href="#home">K• FALL</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
+            <div class="collapse navbar-collapse show" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#home">Accueil</a>
@@ -264,6 +285,9 @@
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#projects">Projets</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#realisations">Réalisations</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#cv">CV</a>
@@ -656,7 +680,7 @@
     </section>
 
     <!-- ====== SECTION PROJETS (2) AVEC SLIDER ====== -->
-    <section class="py-16 px-6 bg-white">
+    <section id="realisations" class="py-16 px-6 bg-white">
         <h2 class="text-2xl font-bold text-center text-blue-600 mb-10">Quelque Réalisations en Images</h2>
 
         <div class="max-w-full px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
