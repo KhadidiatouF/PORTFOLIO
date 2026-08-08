@@ -6,896 +6,1190 @@
     <title>Portfolio - KHADIDIATOU FALL</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
 
     <style>
+        :root {
+            --ink: #111111;
+            --muted: #5b5b5b;
+            --line: #e7e7e7;
+            --paper: #f6f7f8;
+            --white: #ffffff;
+        }
+
         * {
+            box-sizing: border-box;
             margin: 0;
             padding: 0;
         }
 
-        
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 96px;
+        }
 
         body {
-            background-color: #f9fafb;
+            min-height: 100vh;
+            background: #151515;
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .site-shell {
+            width: 100%;
+            margin: 0;
+        }
+
+        .site-shell > .panel {
+            margin-top: 0 !important;
+        }
+
+        .panel {
+            position: relative;
+            overflow: hidden;
+            border: 1px solid rgba(17, 17, 17, 0.06);
+            border-radius: 0;
+            background:
+                radial-gradient(circle at 18% 16%, rgba(17, 17, 17, 0.08) 0 14px, transparent 15px),
+                radial-gradient(circle at 92% 22%, rgba(17, 17, 17, 0.13) 0 22px, transparent 23px),
+                radial-gradient(circle at 74% 76%, rgba(17, 17, 17, 0.09) 0 17px, transparent 18px),
+                linear-gradient(145deg, #fbfcfd 0%, #f0f3f5 100%);
+            box-shadow: 0 24px 70px rgba(0, 0, 0, 0.18);
+            scroll-margin-top: 96px;
+        }
+
+        .section-panel {
+            min-height: 270px;
+            padding: clamp(34px, 5vw, 72px) clamp(18px, 6vw, 96px);
+        }
+
+        .hero-panel {
+            min-height: 100vh;
+            padding: 122px clamp(18px, 6vw, 96px) 42px;
         }
 
         .navbar {
-            position: sticky !important;
-            top: 0 !important;
+            position: fixed !important;
+            top: 16px !important;
+            left: 50%;
             z-index: 9999 !important;
-            background-color: white !important;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+            width: min(calc(100% - 32px), 1280px);
+            transform: translateX(-50%);
+            border: 1px solid rgba(17, 17, 17, 0.07);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.86) !important;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08) !important;
+            backdrop-filter: blur(14px);
         }
 
-        @keyframes grow {
-            from { width: 0; }
-            to { width: 100%; }
+        .navbar-brand {
+            color: var(--ink) !important;
+            font-weight: 900;
+            letter-spacing: 0;
+        }
+
+        .brand-dot {
+            color: #6e6e6e;
+        }
+
+        .navbar-nav {
+            align-items: center;
+            gap: 10px;
+        }
+
+        .navbar .container-fluid {
+            display: flex;
+            align-items: center;
+        }
+
+        .nav-link {
+            position: relative;
+            color: #242424 !important;
+            font-size: 0.83rem;
+            font-weight: 700;
+            padding: 0.45rem 0.65rem !important;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus,
+        .nav-link:active {
+            color: #111111 !important;
+            background: rgba(17, 17, 17, 0.05);
+            border-radius: 999px;
+        }
+
+        .nav-link::after {
+            content: "";
+            position: absolute;
+            left: 0.65rem;
+            right: 0.65rem;
+            bottom: 0.16rem;
+            height: 2px;
+            transform: scaleX(0);
+            transform-origin: left;
+            background: var(--ink);
+            transition: transform 0.25s ease;
+        }
+
+        .nav-link:hover::after,
+        .nav-link.active::after {
+            transform: scaleX(1);
+        }
+
+        .navbar-collapse.show .nav-link,
+        .navbar-collapse.collapsing .nav-link {
+            color: #242424 !important;
+        }
+
+        .navbar-collapse.show .nav-link:hover,
+        .navbar-collapse.show .nav-link:focus,
+        .navbar-collapse.show .nav-link:active {
+            color: #111111 !important;
+            background: #f1f1f1;
+        }
+
+        .navbar-toggler {
+            border: 0;
+            box-shadow: none !important;
+        }
+
+        .hero-grid,
+        .split-grid {
+            display: grid;
+            width: min(100%, 1280px);
+            margin-inline: auto;
+            grid-template-columns: minmax(0, 1fr) minmax(300px, 0.78fr);
+            align-items: center;
+            gap: clamp(28px, 5vw, 70px);
+        }
+
+        .hero-copy-block {
+            grid-column: 1;
+            grid-row: 1;
+        }
+
+        .hero-visual {
+            grid-column: 2;
+            grid-row: 1 / span 2;
+        }
+
+        .hero-actions {
+            grid-column: 1;
+            grid-row: 2;
+        }
+
+        .eyebrow {
+            color: #646464;
+            font-size: 0.78rem;
+            font-weight: 800;
+            letter-spacing: 0.08em;
+            text-transform: uppercase;
+        }
+
+        .hero-title {
+            max-width: 650px;
+            color: var(--ink);
+            font-size: clamp(2.35rem, 5vw, 5rem);
+            font-weight: 900;
+            line-height: 0.98;
+        }
+
+        .stroke-word {
+            display: inline-block;
+            color: transparent;
+            -webkit-text-stroke: 1.4px var(--ink);
+        }
+
+        .typed-line {
+            min-height: 40px;
+            color: #333333;
+            font-size: clamp(1.05rem, 2.1vw, 1.45rem);
+            font-weight: 750;
         }
 
         .typing-animation {
-            border-right: 2px solid #3b82f6;
+            border-right: 2px solid var(--ink);
             animation: blink 1s infinite;
         }
-        
+
         @keyframes blink {
             0%, 50% { border-color: transparent; }
-            51%, 100% { border-color: #3b82f6; }
+            51%, 100% { border-color: var(--ink); }
         }
-        
-        .card-hover {
-            transition: all 0.3s ease;
+
+        .hero-copy {
+            max-width: 590px;
+            color: var(--muted);
+            font-size: 1rem;
+            line-height: 1.8;
         }
-        
-        .card-hover:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+
+        .btn-ink,
+        .btn-ghost {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border-radius: 999px;
+            padding: 0 22px;
+            font-weight: 800;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
         }
-        
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
+
+        .btn-ink {
+            border: 1px solid var(--ink);
+            background: var(--ink);
+            color: var(--white);
+            box-shadow: 0 14px 25px rgba(17, 17, 17, 0.22);
+        }
+
+        .btn-ghost {
+            border: 1px solid #151515;
+            background: rgba(255, 255, 255, 0.7);
+            color: var(--ink);
+        }
+
+        .btn-ink:hover,
+        .btn-ghost:hover {
+            transform: translateY(-3px);
+            color: var(--white);
+            background: #000;
+            box-shadow: 0 18px 34px rgba(17, 17, 17, 0.18);
+        }
+
+        .portrait-orbit {
+            position: relative;
+            width: min(78vw, 390px);
+            aspect-ratio: 1;
+            margin: 0 auto;
+            border: 2px solid rgba(17, 17, 17, 0.9);
+            border-radius: 50%;
+            background: radial-gradient(circle, #ffffff 0%, #f4f6f8 58%, rgba(17, 17, 17, 0.08) 100%);
+            box-shadow: 0 0 0 11px rgba(17, 17, 17, 0.035), 0 24px 54px rgba(0, 0, 0, 0.16);
+        }
+
+        .portrait-orbit::before,
+        .portrait-orbit::after {
+            content: "";
+            position: absolute;
+            inset: -16px;
+            border: 1px solid rgba(17, 17, 17, 0.18);
+            border-radius: 50%;
+            animation: spin 18s linear infinite;
+        }
+
+        .portrait-orbit::after {
+            inset: 15px;
+            border-style: dashed;
+            animation-duration: 26s;
+            animation-direction: reverse;
+        }
+
+        @keyframes spin {
+            to { transform: rotate(360deg); }
+        }
+
+        .portrait-frame {
+            position: absolute;
+            inset: 10px;
+            z-index: 2;
             overflow: hidden;
+            border-radius: 50%;
         }
-        
+
+        .portrait {
+            position: absolute;
+            left: 50%;
+            bottom: -2px;
+            width: 88%;
+            max-height: 108%;
+            transform: translateX(-50%);
+            object-fit: contain;
+            filter: drop-shadow(0 18px 20px rgba(0, 0, 0, 0.12));
+        }
+
+        .orbit-item {
+            position: absolute;
+            inset: -34px;
+            z-index: 4;
+            border-radius: 50%;
+            animation: orbitBadge 18s linear infinite;
+            animation-delay: var(--delay, 0s);
+            pointer-events: none;
+        }
+
+        .orbit-item .floating-badge {
+            left: 50%;
+            top: 0;
+            transform: translate(-50%, -50%);
+            animation: keepBadgeUpright 18s linear infinite;
+            animation-delay: var(--delay, 0s);
+        }
+
+        @keyframes orbitBadge {
+            from { transform: rotate(0deg); }
+            to { transform: rotate(360deg); }
+        }
+
+        @keyframes keepBadgeUpright {
+            from { rotate: 0deg; }
+            to { rotate: -360deg; }
+        }
+
+        .floating-badge {
+            position: absolute;
+            z-index: 5;
+            display: grid;
+            width: 58px;
+            height: 58px;
+            place-items: center;
+            border: 1px solid rgba(17, 17, 17, 0.12);
+            border-radius: 16px;
+            background: rgba(255, 255, 255, 0.86);
+            color: var(--ink);
+            box-shadow: 0 14px 30px rgba(0, 0, 0, 0.14);
+            backdrop-filter: blur(10px);
+        }
+
+        .floating-badge i {
+            font-size: 1.8rem;
+        }
+
+        .orbit-1 { --delay: 0s; }
+        .orbit-2 { --delay: -2.57s; }
+        .orbit-3 { --delay: -5.14s; }
+        .orbit-4 { --delay: -7.71s; }
+        .orbit-5 { --delay: -10.28s; }
+        .orbit-6 { --delay: -12.85s; }
+        .orbit-7 { --delay: -15.42s; }
+
+        .tech-strip {
+            overflow: hidden;
+            width: min(100%, 1280px);
+            margin: 50px auto 0;
+            mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+        }
+
+        .tech-track {
+            display: flex;
+            width: max-content;
+            gap: 12px;
+            animation: techMarquee 26s linear infinite;
+        }
+
+        .tech-strip:hover .tech-track {
+            animation-play-state: paused;
+        }
+
+        @keyframes techMarquee {
+            from { transform: translateX(0); }
+            to { transform: translateX(calc(-50% - 6px)); }
+        }
+
+        .tech-chip {
+            display: inline-flex;
+            flex: 0 0 auto;
+            min-width: 118px;
+            min-height: 42px;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            border: 1px solid rgba(17, 17, 17, 0.08);
+            border-radius: 999px;
+            background: rgba(255, 255, 255, 0.82);
+            color: #1f1f1f;
+            font-size: 0.8rem;
+            font-weight: 800;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.07);
+        }
+
+        .tech-chip i {
+            font-size: 1.25rem;
+        }
+
+        .section-title {
+            margin-bottom: 36px;
+            text-align: center;
+        }
+
+        .section-title h2 {
+            color: var(--ink);
+            font-size: clamp(1.65rem, 3vw, 2.4rem);
+            font-weight: 900;
+        }
+
+        .section-title span {
+            color: #636363;
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 8px;
+        }
+
+        .section-title p {
+            max-width: 620px;
+            margin: 12px auto 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .mini-card,
+        .project-card,
+        .contact-card,
+        .skill-card {
+            border: 1px solid rgba(17, 17, 17, 0.07);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 36px rgba(0, 0, 0, 0.08);
+        }
+
+        .mini-card {
+            padding: 22px;
+        }
+
+        .mini-card h3,
+        .project-card h3,
+        .skill-card h3 {
+            color: var(--ink);
+            font-weight: 900;
+        }
+
+        .mini-card p,
+        .project-card p,
+        .skill-card p {
+            color: var(--muted);
+            line-height: 1.65;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 12px;
+            margin-top: 22px;
+        }
+
+        .stat {
+            border-radius: 8px;
+            background: #f4f4f4;
+            padding: 14px;
+            text-align: center;
+        }
+
+        .stat strong {
+            display: block;
+            color: var(--ink);
+            font-size: 1.25rem;
+            font-weight: 950;
+        }
+
+        .stat span {
+            color: var(--muted);
+            font-size: 0.78rem;
+            font-weight: 700;
+        }
+
+        .value-list {
+            display: grid;
+            gap: 14px;
+        }
+
+        .value-item {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+        }
+
+        .icon-disc {
+            display: grid;
+            width: 42px;
+            height: 42px;
+            flex: 0 0 42px;
+            place-items: center;
+            border-radius: 50%;
+            background: var(--ink);
+            color: #fff;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(4, minmax(0, 1fr));
+            gap: 18px;
+        }
+
+        .skill-card {
+            padding: 23px;
+        }
+
+        .skill-list {
+            display: grid;
+            gap: 16px;
+            margin-top: 18px;
+        }
+
+        .skill-row {
+            display: grid;
+            gap: 7px;
+        }
+
+        .skill-meta {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            color: var(--skill-color, #333);
+            font-size: 0.9rem;
+            font-weight: 800;
+        }
+
+        .skill-bar {
+            height: 7px;
+            overflow: hidden;
+            border-radius: 999px;
+            background: #e7e7e7;
+        }
+
         .skill-progress {
             height: 100%;
-            border-radius: 4px;
-            transition: width 2s ease-in-out;
-        }
-        
-        .nav-link-custom {
-            position: relative;
-            transition: color 0.3s ease;
-        }
-        .nav-link {
-  color: #1f2937 !important; /* gris foncé visible */
-}
-        
-        .nav-link-custom::after {
-            content: '';
-            position: absolute;
             width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background-color: #3b82f6;
-            transition: width 0.3s ease;
-        }
-        
-        .nav-link-custom:hover::after {
-            width: 100%;
+            border-radius: inherit;
+            background: var(--skill-color, #111);
+            transition: width 1.6s ease;
         }
 
-        .cv-download-section {
-            background: linear-gradient(135deg, #667eea 0%, #667eea 100%);
-            padding: 4rem 0;
-            margin: 4rem 0;
+        .github-card {
+            width: min(100%, 420px);
+            margin: 0 auto;
+            padding: 28px;
+            text-align: center;
         }
 
-        .cv-card {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
-            transition: transform 0.3s ease;
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
         }
 
-        .cv-card:hover {
-            transform: translateY(-5px);
+        .home-extra {
+            display: none;
         }
 
-        .download-btn {
-            background: linear-gradient(135deg, #667eea 0%, #667eea 100%);
-            border: none;
-            padding: 1rem 3rem;
-            border-radius: 50px;
-            color: white;
-            font-weight: 600;
-            font-size: 1.1rem;
-            transition: all 0.3s ease;
-            box-shadow: 0 10px 30px rgba(83, 114, 250, 0.884);
+        .realisations-actions {
+            display: flex;
+            justify-content: center;
+            margin-top: 30px;
         }
 
-        .download-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 40px rgba(83, 114, 250, 0.884);
+        .project-card {
+            overflow: hidden;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
 
-        @media (max-width: 768px) {
-            .nav-link-custom::after {
-                display: none;
-            }
-            
-            #home h1 {
-                font-size: 2rem !important;
-            }
-            
-            #home h2 {
-                font-size: 1.3rem !important;
-            }
-
-            .cv-card {
-                padding: 2rem 1.5rem;
-            }
-
-            .download-btn {
-                padding: 0.8rem 2rem;
-                font-size: 1rem;
-            }
-
-            .w-80 {
-                width: 250px !important;
-                height: 250px !important;
-            }
-
-            .text-5xl {
-                font-size: 2rem !important;
-            }
-
-            .text-4xl {
-                font-size: 1.8rem !important;
-            }
-
-            .text-2xl {
-                font-size: 1.5rem !important;
-            }
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.13);
         }
 
-        @media (max-width: 576px) {
-            #home h1 {
-                font-size: 1.5rem !important;
-            }
-
-            .cv-card {
-                padding: 1.5rem 1rem;
-            }
-
-            .cv-card h3 {
-                font-size: 1.3rem !important;
-            }
-
-            .cv-card p {
-                font-size: 0.9rem !important;
-            }
-        }
-
-        .nav-link.active {
-            color: #3b82f6 !important;
-            font-weight: 600;
-        }
-        
-        .nav-link.active::after {
-            width: 100%;
-        }
-
-        /* Animation autour de la photo */
-        @keyframes rotateBorder {
-            0% {
-                transform: rotate(0deg);
-            }
-            100% {
-                transform: rotate(360deg);
-            }
-        }
-
-        @keyframes pulse {
-            0%, 100% {
-                box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
-            }
-            50% {
-                box-shadow: 0 0 0 15px rgba(59, 130, 246, 0);
-            }
-        }
-
-        .photo-container {
+        .slider-frame {
             position: relative;
-            display: inline-block;
+            overflow: hidden;
+            background: #ececec;
         }
 
-        .photo-border {
+        .slider-track {
+            display: flex;
+            transition: transform 0.55s ease;
+        }
+
+        .slider-track img {
+            width: 100%;
+            height: 220px;
+            flex: 0 0 100%;
+            object-fit: cover;
+        }
+
+        .slider-btn {
             position: absolute;
-            top: -15px;
-            left: -15px;
-            right: -15px;
-            bottom: -15px;
-            border: 3px solid transparent;
-            border-image: linear-gradient(45deg, #f63b3b, #667eea, #3b82f6) 1;
+            top: 50%;
+            z-index: 3;
+            display: grid;
+            width: 36px;
+            height: 36px;
+            place-items: center;
+            border: 1px solid rgba(17, 17, 17, 0.1);
             border-radius: 50%;
-            animation: rotateBorder 4s linear infinite;
+            background: rgba(255, 255, 255, 0.86);
+            color: var(--ink);
+            transform: translateY(-50%);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
         }
 
-        .photo-inner {
-            position: relative;
-            animation: pulse 3s infinite;
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+
+        .project-body {
+            padding: 20px;
+        }
+
+        .project-body p {
+            min-height: 78px;
+            margin: 10px 0 16px;
+            font-size: 0.92rem;
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            align-items: center;
+            gap: clamp(24px, 5vw, 58px);
+        }
+
+        .about-content,
+        .contact-content {
+            width: min(100%, 860px);
+            margin: 0 auto;
+        }
+
+        .contact-content {
+            text-align: center;
+        }
+
+        .contact-links {
+            display: grid;
+            width: min(100%, 760px);
+            margin: 0 auto;
+            gap: 14px;
+        }
+
+        .contact-card {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            padding: 16px;
+            color: var(--ink);
+            transition: transform 0.25s ease, background 0.25s ease;
+        }
+
+        .contact-card:hover {
+            transform: translateX(5px);
+            background: #fff;
+            color: var(--ink);
+        }
+
+        .contact-card i {
+            font-size: 1.25rem;
+        }
+
+        .fade-section {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.75s ease, transform 0.75s ease;
+        }
+
+        .fade-section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 1100px) {
+            .skills-grid,
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
         }
 
         @media (min-width: 992px) {
-    .navbar-collapse {
-        display: flex !important;
-        visibility: visible !important;
-        justify-content: flex-end;
-    }
-    .navbar-nav {
-        flex-direction: row !important;
-        gap: 1.5rem;
-    }
-    .navbar-toggler {
-        display: none !important;
-    }
-}
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto;
+                height: auto !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
 
-/* Styles pour le menu burger sur mobile */
-@media (max-width: 991px) {
-    .navbar-collapse {
-        background: white;
-        padding: 1rem;
-        margin-top: 0.5rem;
-        border-radius: 0.5rem;
-        box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-    }
-    .navbar-nav {
-        gap: 0.5rem;
-    }
-    .nav-link {
-        padding: 0.5rem 1rem !important;
-    }
-}
+            .navbar-toggler {
+                display: none !important;
+            }
 
+            .navbar-nav {
+                flex-direction: row !important;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar {
+                top: 10px !important;
+            }
+
+            .navbar-collapse {
+                display: none !important;
+                margin-top: 12px;
+                border-top: 1px solid rgba(17, 17, 17, 0.08);
+                padding-top: 12px;
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 0 0 14px 14px;
+            }
+
+            #navbarNav.portfolio-menu-open {
+                display: block !important;
+                height: auto !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .navbar-nav {
+                align-items: flex-start;
+                width: 100%;
+                gap: 6px;
+            }
+
+            .nav-link {
+                width: 100%;
+                display: block;
+                color: #111111 !important;
+                background: transparent;
+                border-radius: 10px;
+                padding: 0.75rem 0.9rem !important;
+            }
+
+            .nav-link:hover,
+            .nav-link:focus,
+            .nav-link:active,
+            .nav-link.active {
+                color: #111111 !important;
+                background: #f1f1f1;
+            }
+
+            .hero-grid,
+            .split-grid,
+            .contact-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero-grid {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .hero-copy-block {
+                order: 1;
+            }
+
+            .hero-visual {
+                order: 2;
+            }
+
+            .hero-actions {
+                order: 3;
+            }
+
+            .hero-panel {
+                min-height: auto;
+            }
+
+            .hero-copy,
+            .hero-title,
+            .typed-line {
+                margin-inline: auto;
+                text-align: center;
+            }
+
+            .hero-actions {
+                justify-content: center;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .site-shell {
+                width: 100%;
+                margin-top: 0;
+            }
+
+            .panel {
+                border-radius: 0;
+            }
+
+            .section-panel {
+                padding: 28px 18px;
+            }
+
+            .skills-grid,
+            .projects-grid,
+            .stats {
+                grid-template-columns: 1fr;
+            }
+
+            .tech-strip {
+                margin-top: 30px;
+            }
+
+            .floating-badge {
+                width: 48px;
+                height: 48px;
+            }
+
+            .orbit-item {
+                inset: -22px;
+            }
+
+            .floating-badge i {
+                font-size: 1.45rem;
+            }
+
+            .project-body p {
+                min-height: auto;
+            }
+        }
     </style>
 </head>
-<body class="bg-gray-50">
-    <!-- Navigation - TOUT EN HAUT -->
+
+<body>
     <nav class="navbar navbar-expand-lg">
-        <div class="container">
-            <a class="navbar-brand fw-bold text-blue-600" href="#home">K• FALL</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand" href="#home">K<span class="brand-dot">.</span> FALL</a>
+            <button class="navbar-toggler" id="portfolioMenuButton" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Ouvrir le menu">
                 <span class="navbar-toggler-icon"></span>
             </button>
-            <div class="collapse navbar-collapse show" id="navbarNav">
+            <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#home">Accueil</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#about">À propos</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#skills">Compétences</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#projects">Projets</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#realisations">Réalisations</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#cv">CV</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link nav-link-custom text-gray-700 hover:text-blue-600" href="#contact">Contact</a>
-                    </li>
+                    <li class="nav-item"><a class="nav-link" href="#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#skills">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#projects">GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#realisations">Réalisations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <!-- Section Hero -->
-    <section id="home" class="min-h-screen flex items-center bg-white pt-5">
-        <div class="container mx-auto px-4">
-            <div class="row align-items-center">
-                <div class="col-lg-6">
-                    <div class="text-center lg:text-left">
-                        <h1 class="text-5xl font-bold text-gray-800 mb-4">
-                            Bonjour, je suis <br> <span class="text-blue-600">KHADIDIATOU FALL</span>
-                        </h1>
-                        <h2 class="text-2xl text-gray-600 mb-6">
-                            <span id="typed-text" class="typing-animation">Développeuse Web Junior</span>
-                        </h2>
-                        <p class="text-lg text-gray-600 mb-8 leading-relaxed">
-                            Passionnée par le développement web, je recherche un stage pour mettre en pratique mes compétences et apprendre auprès d'une équipe expérimentée.
-                        </p>
-                        <div class="flex flex-wrap gap-4 justify-center lg:justify-start">
-                            <a href="#projects" class="btn btn-primary btn-lg px-6 py-3 rounded-full">
-                                <i class="fas fa-eye me-2"></i>Voir mes projets
-                            </a>
-                            <a href="#contact" class="btn btn-outline-primary btn-lg px-6 py-3 rounded-full">
-                                <i class="fas fa-envelope me-2"></i>Me contacter
-                            </a>
+    <main class="site-shell">
+        <section id="home" class="panel hero-panel fade-section">
+            <div class="hero-grid">
+                <div class="hero-copy-block">
+                    <p class="eyebrow mb-3">Portfolio</p>
+                    <h1 class="hero-title mb-4">Bonjour, je suis <span class="stroke-word">Khadidiatou</span> Fall</h1>
+                    <h2 class="typed-line mb-4"><span id="typed-text" class="typing-animation">Développeuse Web Junior</span></h2>
+                    <p class="hero-copy mb-4">
+                        Passionnée par le développement web et mobile, je conçois des interfaces propres, modernes et fonctionnelles. Je recherche un stage pour grandir dans une équipe expérimentée.
+                    </p>
+                </div>
+
+                <div class="portrait-orbit hero-visual">
+                    <div class="portrait-frame">
+                        <img src="assets/gemi.png" alt="Portrait de Khadidiatou Fall" class="portrait">
+                    </div>
+                    <div class="orbit-item orbit-1"><div class="floating-badge"><i class="devicon-react-original colored"></i></div></div>
+                    <div class="orbit-item orbit-2"><div class="floating-badge"><i class="devicon-typescript-plain colored"></i></div></div>
+                    <div class="orbit-item orbit-3"><div class="floating-badge"><i class="devicon-nodejs-plain colored"></i></div></div>
+                    <div class="orbit-item orbit-4"><div class="floating-badge"><i class="devicon-javascript-plain colored"></i></div></div>
+                    <div class="orbit-item orbit-5"><div class="floating-badge"><i class="devicon-angularjs-plain colored"></i></div></div>
+                    <div class="orbit-item orbit-6"><div class="floating-badge"><i class="devicon-nestjs-plain colored"></i></div></div>
+                    <div class="orbit-item orbit-7"><div class="floating-badge"><i class="devicon-expo-original colored"></i></div></div>
+                </div>
+
+                <div class="hero-actions d-flex flex-wrap gap-3">
+                    <a href="#cv" class="btn-ink"><i class="fas fa-file-arrow-down"></i>Télécharger CV</a>
+                    <a href="#contact" class="btn-ghost"><i class="fas fa-paper-plane"></i>Me contacter</a>
+                </div>
+            </div>
+
+            <div class="tech-strip" aria-label="Technologies">
+                <div class="tech-track">
+                    <span class="tech-chip"><i class="devicon-html5-plain colored"></i>HTML5</span>
+                    <span class="tech-chip"><i class="devicon-css3-plain colored"></i>CSS3</span>
+                    <span class="tech-chip"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                    <span class="tech-chip"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+                    <span class="tech-chip"><i class="devicon-react-original colored"></i>React</span>
+                    <span class="tech-chip"><i class="devicon-tailwindcss-original colored"></i>Tailwind</span>
+                    <span class="tech-chip"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+                    <span class="tech-chip"><i class="devicon-nestjs-plain colored"></i>NestJS</span>
+                    <span class="tech-chip"><i class="devicon-angularjs-plain colored"></i>Angular</span>
+                    <span class="tech-chip"><i class="devicon-expo-original colored"></i>Expo</span>
+                    <span class="tech-chip"><i class="devicon-php-plain colored"></i>PHP</span>
+                    <span class="tech-chip"><i class="devicon-mysql-original colored"></i>MySQL</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-html5-plain colored"></i>HTML5</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-css3-plain colored"></i>CSS3</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-javascript-plain colored"></i>JavaScript</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-typescript-plain colored"></i>TypeScript</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-react-original colored"></i>React</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-tailwindcss-original colored"></i>Tailwind</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-nodejs-plain colored"></i>Node.js</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-nestjs-plain colored"></i>NestJS</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-angularjs-plain colored"></i>Angular</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-expo-original colored"></i>Expo</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-php-plain colored"></i>PHP</span>
+                    <span class="tech-chip" aria-hidden="true"><i class="devicon-mysql-original colored"></i>MySQL</span>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="panel section-panel fade-section mt-5">
+            <div class="mini-card about-content">
+                <p class="eyebrow mb-2">À propos</p>
+                <h2 class="text-3xl font-black mb-3">À propos de <span class="text-gray-500 underline underline-offset-8">moi</span></h2>
+                <p>
+                    Diplômée d'une licence en génie logiciel au Groupe Supdeco et certifiée développeur full stack web et mobile à la Sonatel Académie, je suis passionnée par la création d'interfaces utilisateur modernes et fonctionnelles.
+                </p>
+                <p class="mt-3">
+                    Mon objectif est de combiner créativité et technologie pour créer des expériences web utiles, propres et performantes.
+                </p>
+                <div class="stats">
+                    <div class="stat"><strong>5+</strong><span>Projets</span></div>
+                    <div class="stat"><strong>10+</strong><span>Technologies</span></div>
+                    <div class="stat"><strong>3+</strong><span>Expériences</span></div>
+                </div>
+            </div>
+        </section>
+
+        <section id="skills" class="panel section-panel fade-section mt-5">
+            <div class="section-title">
+                <h2>Mes <span>Compétences</span></h2>
+                <p>Un socle front-end, back-end et outils pour construire des applications web complètes.</p>
+            </div>
+
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Frontend</h3>
+                    <div class="skill-list">
+                        <div class="skill-row" style="--skill-color:#e34f26"><div class="skill-meta"><span>HTML5 / CSS3</span><span>90%</span></div><div class="skill-bar"><div class="skill-progress" data-width="90"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#f7df1e"><div class="skill-meta"><span>JavaScript</span><span>65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#38bdf8"><div class="skill-meta"><span>Tailwind CSS</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#3178c6"><div class="skill-meta"><span>TypeScript</span><span>70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#61dafb"><div class="skill-meta"><span>ReactJS</span><span>50%</span></div><div class="skill-bar"><div class="skill-progress" data-width="50"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Backend</h3>
+                    <div class="skill-list">
+                        <div class="skill-row" style="--skill-color:#5fa04e"><div class="skill-meta"><span>Node.js</span><span>65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#111111"><div class="skill-meta"><span>Express</span><span>70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#e0234e"><div class="skill-meta"><span>NestJS</span><span>55%</span></div><div class="skill-bar"><div class="skill-progress" data-width="55"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#777bb4"><div class="skill-meta"><span>PHP</span><span>60%</span></div><div class="skill-bar"><div class="skill-progress" data-width="60"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Données</h3>
+                    <div class="skill-list">
+                        <div class="skill-row" style="--skill-color:#00618a"><div class="skill-meta"><span>SQL</span><span>80%</span></div><div class="skill-bar"><div class="skill-progress" data-width="80"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#336791"><div class="skill-meta"><span>PostgreSQL</span><span>65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#f97316"><div class="skill-meta"><span>JSON Server</span><span>70%</span></div><div class="skill-bar"><div class="skill-progress" data-width="70"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#2d3748"><div class="skill-meta"><span>Prisma</span><span>85%</span></div><div class="skill-bar"><div class="skill-progress" data-width="85"></div></div></div>
+                    </div>
+                </div>
+
+                <div class="skill-card">
+                    <h3>Outils</h3>
+                    <div class="skill-list">
+                        <div class="skill-row" style="--skill-color:#a259ff"><div class="skill-meta"><span>Figma</span><span>60%</span></div><div class="skill-bar"><div class="skill-progress" data-width="60"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#00c4cc"><div class="skill-meta"><span>Canva</span><span>75%</span></div><div class="skill-bar"><div class="skill-progress" data-width="75"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#21759b"><div class="skill-meta"><span>WordPress</span><span>50%</span></div><div class="skill-bar"><div class="skill-progress" data-width="50"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#181717"><div class="skill-meta"><span>Git / GitHub</span><span>65%</span></div><div class="skill-bar"><div class="skill-progress" data-width="65"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#dd0031"><div class="skill-meta"><span>Angular</span><span>45%</span></div><div class="skill-bar"><div class="skill-progress" data-width="45"></div></div></div>
+                        <div class="skill-row" style="--skill-color:#000020"><div class="skill-meta"><span>Expo</span><span>55%</span></div><div class="skill-bar"><div class="skill-progress" data-width="55"></div></div></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="projects" class="panel section-panel fade-section mt-5">
+            <div class="github-card mini-card">
+                <div class="icon-disc mx-auto mb-3"><i class="fab fa-github"></i></div>
+                <h2 class="text-2xl font-black mb-3">Voir mes projets sur GitHub</h2>
+                <p class="mb-4">Vous trouverez ici l'ensemble des projets académiques réalisés.</p>
+                <a href="https://github.com/KhadidiatouF" target="_blank" class="btn-ink"><i class="fab fa-github"></i>Mon compte GitHub</a>
+            </div>
+        </section>
+
+        <section id="realisations" class="panel section-panel fade-section mt-5">
+            <div class="section-title">
+                <h2>Mes <span>Réalisations</span></h2>
+                <p>Quelques interfaces réalisées pendant mes projets académiques.</p>
+            </div>
+
+            <div class="projects-grid">
+                <article class="project-card home-extra">
+                    <div class="slider-frame">
+                        <div class="slider-track" id="slider-projet1">
+                            <img src="assets/gesEntreprise/E1.png" alt="Gestion Entreprise">
+                            <img src="assets/gesEntreprise/image.png" alt="Gestion Entreprise">
+                            <img src="assets/gesEntreprise/image copy.png" alt="Gestion Entreprise">
+                            <img src="assets/gesEntreprise/image copy 2.png" alt="Gestion Entreprise">
+                            <img src="assets/gesEntreprise/image copy 3.png" alt="Gestion Entreprise">
+                            <img src="assets/gesEntreprise/image copy 4.png" alt="Gestion Entreprise">
+                        </div>
+                        <button class="slider-btn prev" onclick="prevSlide('projet1')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="nextSlide('projet1')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-body">
+                        <h3>Gestion Entreprise</h3>
+                        <p>Application complète pour gérer entreprises, employés, pointages et congés avec Tailwind, TypeScript, React et Node.js.</p>
+                        <div class="project-actions">
+                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://github.com/KhadidiatouF/GESTION_ENTREPRISE_" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="text-center mt-5 lg:mt-0">
-                        <div class="photo-container">
-                            <div class="photo-border"></div>
-                            <div class="h-80 bg-blue-100 rounded-full flex items-center justify-center mx-auto photo-inner">
-                                <img class="rounded-full mt-[10rem] w-[40rem]" src="assets/gemi.png" alt="">
-                            </div>
-                            <div class="absolute -top-4 -right-4 bg-red-400 text-white p-3 rounded-full animate-bounce">
-                                <i class="fas fa-heart"></i>
-                            </div>
+                </article>
+
+                <article class="project-card home-extra">
+                    <div class="slider-frame">
+                        <div class="slider-track" id="slider-projet2">
+                            <img src="assets/gesCargo/image.png" alt="Gestion Cargaison">
+                            <img src="assets/gesCargo/image copy.png" alt="Gestion Cargaison">
+                            <img src="assets/gesCargo/image copy 2.png" alt="Gestion Cargaison">
+                            <img src="assets/gesCargo/image copy 3.png" alt="Gestion Cargaison">
+                            <img src="assets/gesCargo/image copy 4.png" alt="Gestion Cargaison">
+                        </div>
+                        <button class="slider-btn prev" onclick="prevSlide('projet2')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="nextSlide('projet2')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-body">
+                        <h3>Gestion Cargaison</h3>
+                        <p>Gestion des colis envoyés par voies maritimes, aériennes et terrestres avec suivi, Tailwind, TypeScript et JSON Server.</p>
+                        <div class="project-actions">
+                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://github.com/KhadidiatouF/GesCargo.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </article>
 
-    <!-- Section À propos -->
-    <section id="about" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">À propos de moi</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-6 mb-4 mb-lg-0">
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-4">Mon parcours</h3>
-                        <p class="text-gray-600 mb-4 leading-relaxed">
-                            Apprenante à la Sonatel Académie actuellement, en développement web et mobile, je suis passionnée pour la création d'interfaces utilisateur modernes et fonctionnelles. Mon objectif est de combiner créativité et technologie pour créer des expériences web exceptionnelles.
-                        </p>
-                        <p class="text-gray-600 mb-6 leading-relaxed">
-                            Toujours en quête d'apprentissage, j'aime me tenir au courant des dernières tendances et technologies du développement web pour offrir des solutions innovantes et performantes.
-                        </p>
-                        <div class="grid grid-cols-2 gap-4">
-                            <div class="text-center p-4 bg-blue-50 rounded-lg">
-                                <i class="fas fa-graduation-cap text-blue-600 text-2xl mb-2"></i>
-                                <h4 class="font-semibold text-gray-800">Formation</h4>
-                                <p class="text-sm text-gray-600">Licence en Génie Logiciel/Formation en Développement web et mobile</p>
-                            </div>
-                            <div class="text-center p-4 bg-green-50 rounded-lg">
-                                <i class="fas fa-code text-green-600 text-2xl mb-2"></i>
-                                <h4 class="font-semibold text-gray-800">Expérience</h4>
-                                <p class="text-sm text-gray-600">Projets académiques</p>
-                            </div>
+                <article class="project-card home-extra">
+                    <div class="slider-frame">
+                        <div class="slider-track" id="slider-projet3">
+                            <img src="assets/gesTache/image.png" alt="Gestion des Taches">
+                            <img src="assets/gesTache/image copy.png" alt="Gestion des Taches">
+                            <img src="assets/gesTache/image copy 2.png" alt="Gestion des Taches">
+                            <img src="assets/gesTache/image copy 3.png" alt="Gestion des Taches">
+                        </div>
+                        <button class="slider-btn prev" onclick="prevSlide('projet3')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="nextSlide('projet3')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-body">
+                        <h3>Gestion des Tâches</h3>
+                        <p>Application de gestion des tâches de type todolist avec Node.js, Tailwind et React.</p>
+                        <div class="project-actions">
+                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://github.com/KhadidiatouF/BackFrontTODO.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
-                </div>
-                <div class="col-lg-6">
-                    <div class="bg-white p-8 rounded-lg shadow-lg">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Mes valeurs</h3>
-                        <div class="space-y-4">
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-blue-600 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-lightbulb text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Innovation</h4>
-                                    <p class="text-gray-600 text-sm">Toujours à la recherche de nouvelles solutions</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-green-600 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-users text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Collaboration</h4>
-                                    <p class="text-gray-600 text-sm">Adaptabilité, Esprit d'équipe, Empathie, Ponctualité</p>
-                                </div>
-                            </div>
-                            <div class="flex items-center">
-                                <div class="w-12 h-12 bg-purple-600 rounded-full flex items-center justify-center mr-4">
-                                    <i class="fas fa-rocket text-white"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold text-gray-800">Centres d'intérêt</h4>
-                                    <p class="text-gray-600 text-sm">Lecture, Randonnée, Cuisine, Musique</p>
-                                </div>
-                            </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track" id="slider-projet4">
+                            <img src="assets/Maxit/image copy 4.png" alt="Gestion des Apprenants">
+                            <img src="assets/Maxit/image copy 5.png" alt="Gestion des Apprenants">
+                            <img src="assets/Maxit/image copy 6.png" alt="Gestion des Apprenants">
+                            <img src="assets/Maxit/image copy 7.png" alt="Gestion des Apprenants">
+                        </div>
+                        <button class="slider-btn prev" onclick="prevSlide('projet4')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="nextSlide('projet4')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-body">
+                        <h3>Gestion des Apprenants</h3>
+                        <p>Application de gestion des apprenants de ODC avec PHP et JSON Server.</p>
+                        <div class="project-actions">
+                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="#" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+                </article>
 
-    <!-- Section Compétences -->
-    <section id="skills" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Mes Compétences</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-            </div>
-            <div class="row">
-                <div class="col-lg-4 mb-4">
-                    <div class="bg-gray-50 p-8 rounded-lg h-100">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Frontend</h3>
-                        <div class="space-y-4">
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">HTML5/CSS3</span>
-                                    <span class="text-blue-600">90%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-blue-600" style="width: 0%" data-width="90"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">JavaScript</span>
-                                    <span class="text-green-600">65%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-green-600" style="width: 0%" data-width="65"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">Tailwind CSS</span>
-                                    <span class="text-teal-600">80%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-teal-600" style="width: 0%" data-width="80"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">TypeScript</span>
-                                    <span class="text-yellow-600">70%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-yellow-600" style="width: 0%" data-width="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-grey-700">ReactJS</span>
-                                    <span class="text-pink-600">50%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-pink-600" style="width: 0%" data-width="70"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">Express</span>
-                                    <span class="text-orange-600">70%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="70"></div>
-                                </div>
-                            </div>
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track" id="slider-projet5">
+                            <img src="assets/Whatsapp/image.png" alt="Clonage Whatsapp">
+                            <img src="assets/Whatsapp/image copy.png" alt="Clonage Whatsapp">
+                            <img src="assets/Whatsapp/image copy 2.png" alt="Clonage Whatsapp">
+                            <img src="assets/Whatsapp/image copy 3.png" alt="Clonage Whatsapp">
+                        </div>
+                        <button class="slider-btn prev" onclick="prevSlide('projet5')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="nextSlide('projet5')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-body">
+                        <h3>Clonage WhatsApp</h3>
+                        <p>Projet de clonage de l'application WhatsApp avec interface de messagerie.</p>
+                        <div class="project-actions">
+                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://github.com/KhadidiatouF/PROJET-WHATSAPPNEW.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
-                </div>
+                </article>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="bg-gray-50 p-8 rounded-lg h-100">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Backend</h3>
-                        <div class="space-y-4">
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">PHP</span>
-                                    <span class="text-purple-600">60%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-purple-600" style="width: 0%" data-width="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">MySQL</span>
-                                    <span class="text-orange-600">75%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">Node.js</span>
-                                    <span class="text-green-500">65%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-green-500" style="width: 0%" data-width="65"></div>
-                                </div>
-                            </div>
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track" id="slider-projet6">
+                            <img src="assets/Grain&Cereal/image.png" alt="Grain et Cereale">
+                            <img src="assets/Grain&Cereal/image copy.png" alt="Grain et Cereale">
+                            <img src="assets/Grain&Cereal/image copy 2.png" alt="Grain et Cereale">
+                            <img src="assets/Grain&Cereal/image copy 3.png" alt="Grain et Cereale">
+                        </div>
+                        <button class="slider-btn prev" onclick="prevSlide('projet6')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                        <button class="slider-btn next" onclick="nextSlide('projet6')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                    </div>
+                    <div class="project-body">
+                        <h3>Grain & Céréale</h3>
+                        <p>Site vitrine de présentation de produit pour prise de masse.</p>
+                        <div class="project-actions">
+                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://github.com/KhadidiatouF/Grain-Cereal.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
-                </div>
+                </article>
+            </div>
+            <div class="realisations-actions">
+                <a href="realisations.html" class="btn-ink"><i class="fas fa-table-cells-large"></i>Voir plus</a>
+            </div>
+        </section>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="bg-gray-50 p-8 rounded-lg h-100">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Outils</h3>
-                        <div class="space-y-4">
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">FIGMA</span>
-                                    <span class="text-purple-600">60%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-purple-600" style="width: 0%" data-width="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">CANVA</span>
-                                    <span class="text-orange-600">75%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">WordPress</span>
-                                    <span class="text-blue-500">50%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-blue-500" style="width: 0%" data-width="50"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">Git/GitHub</span>
-                                    <span class="text-gray-600">65%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-gray-600" style="width: 0%" data-width="65"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section id="cv" class="panel section-panel fade-section mt-5">
+            <div class="section-title">
+                <h2>Télécharger <span>mon CV</span></h2>
+                <p>Découvrez mon parcours complet, mes compétences et mes réalisations au format PDF.</p>
+            </div>
+            <div class="github-card mini-card">
+                <div class="icon-disc mx-auto mb-3"><i class="fas fa-file-pdf"></i></div>
+                <div class="d-flex flex-wrap justify-content-center gap-3 mb-4 text-sm text-gray-600 fw-bold">
+                    <span><i class="fas fa-check me-1"></i>PDF</span>
+                    <span><i class="fas fa-check me-1"></i>À jour</span>
+                    <span><i class="fas fa-check me-1"></i>Téléchargement instantané</span>
                 </div>
+                <button class="btn-ink border-0" onclick="downloadCV()"><i class="fas fa-download"></i>Télécharger mon CV</button>
+            </div>
+        </section>
 
-                <div class="col-lg-4 mb-4">
-                    <div class="bg-gray-50 p-8 rounded-lg h-100">
-                        <h3 class="text-2xl font-semibold text-gray-800 mb-6">Base de données</h3>
-                        <div class="space-y-4">
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">SQL</span>
-                                    <span class="text-purple-600">80%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-purple-600" style="width: 0%" data-width="60"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">PostgreSQL</span>
-                                    <span class="text-orange-600">65%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-orange-600" style="width: 0%" data-width="75"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">JSON-Server</span>
-                                    <span class="text-blue-500">70%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-blue-500" style="width: 0%" data-width="50"></div>
-                                </div>
-                            </div>
-                            <div class="skill-item">
-                                <div class="flex justify-between mb-2">
-                                    <span class="font-medium text-gray-700">Prisma</span>
-                                    <span class="text-gray-600">85%</span>
-                                </div>
-                                <div class="skill-bar bg-gray-200">
-                                    <div class="skill-progress bg-gray-600" style="width: 0%" data-width="65"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
+        <section id="contact" class="panel section-panel fade-section mt-5">
+            <div class="contact-content">
+                <p class="eyebrow mb-2">Contact</p>
+                <h2 class="text-3xl font-black mb-3">Contactez-<span class="text-gray-500 underline underline-offset-8">moi</span></h2>
+                <p class="text-gray-600 mb-4">Intéressé par mon profil ? N'hésitez pas à me contacter.</p>
+                <div class="contact-links">
+                    <a href="mailto:kfall2104@gmail.com" class="contact-card"><span class="icon-disc"><i class="fas fa-envelope"></i></span><span><strong>Email</strong><br>kfall2104@gmail.com</span></a>
+                    <a href="https://www.linkedin.com/in/khadidiatou-fall-b49340214/" target="_blank" class="contact-card"><span class="icon-disc"><i class="fab fa-linkedin-in"></i></span><span><strong>LinkedIn</strong><br>Mon LinkedIn</span></a>
+                    <a href="https://github.com/KhadidiatouF" target="_blank" class="contact-card"><span class="icon-disc"><i class="fab fa-github"></i></span><span><strong>GitHub</strong><br>Mon GitHub</span></a>
                 </div>
             </div>
-        </div>
-    </section>
-
-    <!-- Section Projets -->
-    <section id="projects" class="py-20 bg-gray-50">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Mes Projets</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto"></div>
-            </div>
-            <div class="flex justify-center items-center">
-                <div class="col-lg-4 col-md-6 mb-4">
-                    <div class="card border-0 shadow-lg card-hover h-100">
-                        <div class="card-body p-6">
-                            <div class="text-center mb-4">
-                                <div class="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-3">
-                                    <i class="fas fa-blog text-blue-600 text-2xl"></i>
-                                </div>
-                                <h3 class="card-title font-bold text-gray-800">Voir dans mon GitHub</h3>
-                            </div>
-                            <p class="card-text text-gray-600 mb-4">
-                                Vous trouverez ici l'ensemble des projets académiques réalisés
-                            </p>
-                            <div class="flex gap-2">
-                                <a href="https://github.com/KhadidiatouF" target="_blank" class="btn btn-outline-blue btn-sm flex-1" style="border-color: #7c3aed; color: #7c3aed;">
-                                    <i class="fab fa-github me-1"></i>MON COMPTE GITHUB
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Téléchargement CV -->
-    <section id="cv" class="cv-download-section">
-        <div class="container mx-auto px-4">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="cv-card text-center">
-                        <div class="mb-4">
-                            <i class="fas fa-file-pdf text-blue-600" style="font-size: 4rem;"></i>
-                        </div>
-                        <h3 class="text-3xl font-bold text-gray-800 mb-3">Téléchargez mon CV</h3>
-                        <p class="text-gray-600 mb-5 text-lg">
-                            Découvrez mon parcours complet, mes compétences et mes réalisations en téléchargeant mon curriculum vitae.
-                        </p>
-                        <div class="d-flex flex-column flex-md-row gap-3 justify-content-center align-items-center mb-4">
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-2"></i>
-                                <span class="text-gray-700">Format PDF</span>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-2"></i>
-                                <span class="text-gray-700">À jour</span>
-                            </div>
-                            <div class="d-flex align-items-center">
-                                <i class="fas fa-check-circle text-success me-2"></i>
-                                <span class="text-gray-700">Téléchargement instantané</span>
-                            </div>
-                        </div>
-                        <button class="download-btn" onclick="downloadCV()">
-                            <i class="fas fa-download me-2"></i>Télécharger mon CV
-                        </button>
-                        <p class="text-gray-500 mt-3 mb-0" style="font-size: 0.9rem;">
-                            <i class="fas fa-info-circle me-1"></i>
-                            Le téléchargement commencera automatiquement
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- ====== SECTION PROJETS (2) AVEC SLIDER ====== -->
-    <section id="realisations" class="py-16 px-6 bg-white">
-        <h2 class="text-2xl font-bold text-center text-blue-600 mb-10">Quelque Réalisations en Images</h2>
-
-        <div class="max-w-full px-4 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500" id="slider-projet1">
-                        <img src="assets/gesEntreprise/E1.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 7.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 8.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 9.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 10.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 11.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 12.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 13.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesEntreprise/image copy 14.png" class="w-full h-56 object-cover flex-shrink-0" />
-                    </div>
-                    <button onclick="prevSlide('projet1')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10094;
-                    </button>
-                    <button onclick="nextSlide('projet1')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10095;
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Entreprise</h3>
-                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion d'entreprises, d'employés, des pointages et des congés. <br> avec Tailwind, TypeScript, REACT et NodeJS</p>
-                    <a href="https://github.com/KhadidiatouF/GESTION_ENTREPRISE_" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500" id="slider-projet2">
-                        <img src="assets/gesCargo/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesCargo/image copy 7&.png" class="w-full h-56 object-cover flex-shrink-0" />
-                    </div>
-                    <button onclick="prevSlide('projet2')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10094;
-                    </button>
-                    <button onclick="nextSlide('projet2')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10095;
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Cargaison</h3>
-                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des colis envoyés par voix maritimes, aériens et terrestres et leurs suivis. <br> Avec Tailwind, TypeScript et Json server</p>
-                    <a href="https://github.com/KhadidiatouF/GesCargo.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500" id="slider-projet3">
-                        <img src="assets/gesTache/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesTache/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesTache/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/gesTache/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-                    </div>
-                    <button onclick="prevSlide('projet3')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10094;
-                    </button>
-                    <button onclick="nextSlide('projet3')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10095;
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion des Taches</h3>
-                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des taches (TODOLIST) <br> Avec NODEJS, Tailwind et REACT.</p>
-                    <a href="https://github.com/KhadidiatouF/BackFrontTODO.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500" id="slider-projet4">
-                        <img src="assets/Maxit/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 7.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 8.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 9.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 10.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 11.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 12.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Maxit/image copy 13.png" class="w-full h-56 object-cover flex-shrink-0" />
-                    </div>
-                    <button onclick="prevSlide('projet4')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10094;
-                    </button>
-                    <button onclick="nextSlide('projet4')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10095;
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Gestion Des Apprenants</h3>
-                    <p class="text-gray-600 text-sm mb-4">Application complète pour la gestion des apprenants de ODC <br> Avec Php et Json Server.</p>
-                    <a href="#" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500" id="slider-projet5">
-                        <img src="assets/Whatsapp/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Whatsapp/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Whatsapp/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Whatsapp/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Whatsapp/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Whatsapp/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-                    </div>
-                    <button onclick="prevSlide('projet5')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10094;
-                    </button>
-                    <button onclick="nextSlide('projet5')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10095;
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Clonage Whatsapp</h3>
-                    <p class="text-gray-600 text-sm mb-4">Application complète le clonage de l'application whatsapp.</p>
-                    <a href="https://github.com/KhadidiatouF/PROJET-WHATSAPPNEW.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-                </div>
-            </div>
-
-            <div class="bg-white rounded-2xl shadow-lg overflow-hidden transition-transform duration-300 hover:-translate-y-2">
-                <div class="relative overflow-hidden">
-                    <div class="flex transition-transform duration-500" id="slider-projet6">
-                        <img src="assets/Grain&Cereal/image.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Grain&Cereal/image copy.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Grain&Cereal/image copy 2.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Grain&Cereal/image copy 3.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Grain&Cereal/image copy 4.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Grain&Cereal/image copy 5.png" class="w-full h-56 object-cover flex-shrink-0" />
-                        <img src="assets/Grain&Cereal/image copy 6.png" class="w-full h-56 object-cover flex-shrink-0" />
-
-                    </div>
-                    <button onclick="prevSlide('projet6')" class="absolute left-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10094;
-                    </button>
-                    <button onclick="nextSlide('projet6')" class="absolute right-2 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow">
-                        &#10095;
-                    </button>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-lg font-semibold text-gray-800 mb-2">Projet Grain&Cereale</h3>
-                    <p class="text-gray-600 text-sm mb-4">Site vitrine de présentation de produit pour prise de masse.</p>
-                    <a href="https://github.com/KhadidiatouF/Grain-Cereal.git" class="inline-block bg-blue-600 text-white px-4 py-2 rounded-lg text-sm font-medium hover:bg-blue-700">Voir le projet</a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Section Contact -->
-    <section id="contact" class="py-20 bg-white">
-        <div class="container mx-auto px-4">
-            <div class="text-center mb-16">
-                <h2 class="text-4xl font-bold text-gray-800 mb-4">Contactez-moi</h2>
-                <div class="w-24 h-1 bg-blue-600 mx-auto mb-4"></div>
-                <p class="text-lg text-gray-600">Intéressé par mon profil ? N'hésitez pas à me contacter !</p>
-            </div>
-            <div class="row">
-                <div class="col-lg-10 mx-auto">
-                    <div class="row">
-                        <div class="col-md-4 mb-4">
-                            <div class="text-center p-6 bg-gray-50 rounded-lg h-100">
-                                <div class="w-16 h-16 bg-blue-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="fas fa-envelope text-white text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">Email</h4>
-                                <a href="mailto:kfall2104@gmail.com" class="text-blue-600">kfall2104@gmail.com</a>
-                            </div>
-                        </div>
-                      
-                        <div class="col-md-4 mb-4">
-                            <div class="text-center p-6 bg-gray-50 rounded-lg h-100">
-                                <div class="w-16 h-16 bg-purple-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="fab fa-linkedin text-white text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">LinkedIn</h4>
-                                <a href="https://www.linkedin.com/in/khadidiatou-fall-b49340214/" target="_blank" class="text-purple-600">Mon LinkedIn</a>
-                            </div>
-                        </div>
-                         
-                        <div class="col-md-4 mb-4">
-                            <div class="text-center p-6 bg-gray-50 rounded-lg h-100">
-                                <div class="w-16 h-16 bg-green-600 rounded-full flex items-center justify-center mx-auto mb-4">
-                                    <i class="fab fa-github text-white text-xl"></i>
-                                </div>
-                                <h4 class="font-semibold text-gray-800 mb-2">GitHub</h4>
-                                <a href="https://github.com/KhadidiatouF" target="_blank" class="text-green-600">Mon GitHub</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+        </section>
+    </main>
 
     <script>
         function downloadCV() {
             const link = document.createElement('a');
-            link.href = '/assets/Curriculum_vitae_khadidiatou_fall.pdf'; 
+            link.href = 'assets/Curriculum_vitae_KHADIDIATOU_FALL.pdf';
             link.download = 'CV_KHADIDIATOU_FALL.pdf';
             document.body.appendChild(link);
             link.click();
@@ -903,12 +1197,8 @@
         }
 
         function animateSkillBars() {
-            const skillBars = document.querySelectorAll('.skill-progress');
-            skillBars.forEach(bar => {
-                const width = bar.getAttribute('data-width');
-                setTimeout(() => {
-                    bar.style.width = width + '%';
-                }, 500);
+            document.querySelectorAll('.skill-progress').forEach((bar) => {
+                bar.style.width = `${bar.dataset.width}%`;
             });
         }
 
@@ -919,154 +1209,119 @@
                 'Passionnée de technologie',
                 'À la recherche d\'un stage'
             ];
-            
             let textIndex = 0;
             let charIndex = 0;
             let isDeleting = false;
             const typedElement = document.getElementById('typed-text');
-            
+
             function type() {
                 const currentText = texts[textIndex];
-                
-                if (isDeleting) {
-                    typedElement.textContent = currentText.substring(0, charIndex - 1);
-                    charIndex--;
-                } else {
-                    typedElement.textContent = currentText.substring(0, charIndex + 1);
-                    charIndex++;
-                }
-                
-                let typeSpeed = isDeleting ? 50 : 100;
-                
+                typedElement.textContent = isDeleting
+                    ? currentText.substring(0, charIndex - 1)
+                    : currentText.substring(0, charIndex + 1);
+                charIndex += isDeleting ? -1 : 1;
+
+                let speed = isDeleting ? 45 : 85;
                 if (!isDeleting && charIndex === currentText.length) {
-                    typeSpeed = 2000;
+                    speed = 1700;
                     isDeleting = true;
                 } else if (isDeleting && charIndex === 0) {
                     isDeleting = false;
                     textIndex = (textIndex + 1) % texts.length;
-                    typeSpeed = 500;
+                    speed = 450;
                 }
-                
-                setTimeout(type, typeSpeed);
+
+                setTimeout(type, speed);
             }
-            
+
             type();
         }
 
-        // Smooth scrolling pour les liens de navigation
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+        const menuButton = document.getElementById('portfolioMenuButton');
+        const navbarCollapse = document.getElementById('navbarNav');
+
+        function closePortfolioMenu() {
+            navbarCollapse.classList.remove('portfolio-menu-open', 'show');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = navbarCollapse.classList.toggle('portfolio-menu-open');
+            navbarCollapse.classList.toggle('show', isOpen);
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+            anchor.addEventListener('click', (event) => {
+                event.preventDefault();
+                const target = document.querySelector(anchor.getAttribute('href'));
                 if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth',
-                        block: 'start'
-                    });
-                    
-                    // Fermer le menu mobile après le clic
-                    const navbarCollapse = document.getElementById('navbarNav');
-                    if (navbarCollapse.classList.contains('show')) {
-                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                            toggle: true
-                        });
-                    }
+                    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+
+                if (navbarCollapse.classList.contains('portfolio-menu-open')) {
+                    closePortfolioMenu();
+                } else if (navbarCollapse.classList.contains('show') && window.bootstrap) {
+                    bootstrap.Collapse.getOrCreateInstance(navbarCollapse).hide();
                 }
             });
         });
 
         const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    if (entry.target.id === 'skills') {
-                        animateSkillBars();
-                    }
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
+            entries.forEach((entry) => {
+                if (!entry.isIntersecting) return;
+                entry.target.classList.add('visible');
+                if (entry.target.id === 'skills') {
+                    animateSkillBars();
                 }
             });
-        }, { threshold: 0.1 });
+        }, { threshold: 0.16 });
 
-        document.querySelectorAll('section').forEach(section => {
-            section.style.opacity = '0';
-            section.style.transform = 'translateY(30px)';
-            section.style.transition = 'all 0.8s ease';
-            observer.observe(section);
-        });
+        document.querySelectorAll('.fade-section').forEach((section) => observer.observe(section));
 
         window.addEventListener('scroll', () => {
-            const sections = document.querySelectorAll('section');
-            const navLinks = document.querySelectorAll('.nav-link');
-            
             let current = '';
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                if (scrollY >= (sectionTop - 200)) {
-                    current = section.getAttribute('id');
+            document.querySelectorAll('section[id]').forEach((section) => {
+                if (window.scrollY >= section.offsetTop - 190) {
+                    current = section.id;
                 }
             });
 
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${current}`) {
-                    link.classList.add('active');
-                }
+            document.querySelectorAll('.nav-link').forEach((link) => {
+                link.classList.toggle('active', link.getAttribute('href') === `#${current}`);
             });
-        });
-
-        document.querySelectorAll('.card-hover').forEach(card => {
-            card.addEventListener('mouseenter', function() {
-                this.style.transform = 'translateY(-10px) scale(1.02)';
-            });
-            
-            card.addEventListener('mouseleave', function() {
-                this.style.transform = 'translateY(0) scale(1)';
-            });
-        });
-
-        // Initialisation des animations
-        document.addEventListener('DOMContentLoaded', function() {
-            typeWriter();
-            
-            // Animation d'entrée pour le hero
-            setTimeout(() => {
-                document.querySelector('#home').style.opacity = '1';
-                document.querySelector('#home').style.transform = 'translateY(0)';
-            }, 100);
         });
 
         const sliders = {};
-    
-        function nextSlide(id) {
-            const slider = document.getElementById(`slider-${id}`);
-            const total = slider.children.length;
-            sliders[id] = (sliders[id] || 0) + 1;
-            if (sliders[id] >= total) sliders[id] = 0;
-            slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
-        }
 
-        function prevSlide(id) {
+        function setSlide(id, direction) {
             const slider = document.getElementById(`slider-${id}`);
+            if (!slider) return;
             const total = slider.children.length;
-            sliders[id] = (sliders[id] || 0) - 1;
+            sliders[id] = (sliders[id] || 0) + direction;
+            if (sliders[id] >= total) sliders[id] = 0;
             if (sliders[id] < 0) sliders[id] = total - 1;
             slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
         }
 
-        setInterval(() => {
-            nextSlide('projet1');
-            nextSlide('projet2');
-            nextSlide('projet3');
-            nextSlide('projet4');
-            nextSlide('projet5');
-            nextSlide('projet6');
+        function nextSlide(id) {
+            setSlide(id, 1);
+        }
 
+        function prevSlide(id) {
+            setSlide(id, -1);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            typeWriter();
+            document.querySelector('#home').classList.add('visible');
+        });
+
+        setInterval(() => {
+            ['projet1', 'projet2', 'projet3', 'projet4', 'projet5', 'projet6'].forEach(nextSlide);
         }, 5000);
     </script>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
-
-
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

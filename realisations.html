@@ -1,0 +1,534 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Réalisations - KHADIDIATOU FALL</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        :root {
+            --ink: #111111;
+            --muted: #5b5b5b;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #151515;
+            color: var(--ink);
+            font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        .navbar {
+            position: fixed !important;
+            top: 16px !important;
+            left: 50%;
+            z-index: 9999 !important;
+            width: min(calc(100% - 32px), 1280px);
+            transform: translateX(-50%);
+            border: 1px solid rgba(17, 17, 17, 0.07);
+            border-radius: 18px;
+            background: rgba(255, 255, 255, 0.9) !important;
+            box-shadow: 0 12px 36px rgba(0, 0, 0, 0.08) !important;
+            backdrop-filter: blur(14px);
+        }
+
+        .navbar .container-fluid {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar-brand {
+            color: var(--ink) !important;
+            font-weight: 900;
+        }
+
+        .brand-dot {
+            color: #6e6e6e;
+        }
+
+        .navbar-nav {
+            align-items: center;
+            gap: 10px;
+        }
+
+        .nav-link {
+            color: #242424 !important;
+            font-size: 0.83rem;
+            font-weight: 800;
+            padding: 0.45rem 0.65rem !important;
+            border-radius: 999px;
+        }
+
+        .nav-link:hover,
+        .nav-link:focus,
+        .nav-link:active {
+            color: #111111 !important;
+            background: rgba(17, 17, 17, 0.06);
+        }
+
+        .navbar-toggler {
+            border: 0;
+            box-shadow: none !important;
+        }
+
+        .page-panel {
+            min-height: 100vh;
+            padding: 126px clamp(18px, 6vw, 96px) 72px;
+            background:
+                radial-gradient(circle at 18% 16%, rgba(17, 17, 17, 0.08) 0 14px, transparent 15px),
+                radial-gradient(circle at 92% 22%, rgba(17, 17, 17, 0.13) 0 22px, transparent 23px),
+                radial-gradient(circle at 74% 76%, rgba(17, 17, 17, 0.09) 0 17px, transparent 18px),
+                linear-gradient(145deg, #fbfcfd 0%, #f0f3f5 100%);
+        }
+
+        .section-title {
+            margin: 0 auto 36px;
+            text-align: center;
+        }
+
+        .section-title h1 {
+            color: var(--ink);
+            font-size: clamp(2rem, 4vw, 3.3rem);
+            font-weight: 950;
+        }
+
+        .section-title span {
+            color: #636363;
+            text-decoration: underline;
+            text-decoration-thickness: 3px;
+            text-underline-offset: 8px;
+        }
+
+        .section-title p {
+            max-width: 660px;
+            margin: 12px auto 0;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+
+        .btn-ink,
+        .btn-ghost {
+            display: inline-flex;
+            min-height: 46px;
+            align-items: center;
+            justify-content: center;
+            gap: 9px;
+            border-radius: 999px;
+            padding: 0 22px;
+            font-weight: 800;
+            transition: transform 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+        }
+
+        .btn-ink {
+            border: 1px solid var(--ink);
+            background: var(--ink);
+            color: var(--white);
+            box-shadow: 0 14px 25px rgba(17, 17, 17, 0.22);
+        }
+
+        .btn-ghost {
+            border: 1px solid #151515;
+            background: rgba(255, 255, 255, 0.72);
+            color: var(--ink);
+        }
+
+        .btn-ink:hover,
+        .btn-ghost:hover {
+            transform: translateY(-3px);
+            color: var(--white);
+            background: #000;
+            box-shadow: 0 18px 34px rgba(17, 17, 17, 0.18);
+        }
+
+        .projects-grid {
+            display: grid;
+            width: min(100%, 1280px);
+            margin: 0 auto;
+            grid-template-columns: repeat(3, minmax(0, 1fr));
+            gap: 22px;
+        }
+
+        .project-card {
+            overflow: hidden;
+            border: 1px solid rgba(17, 17, 17, 0.07);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.9);
+            box-shadow: 0 15px 36px rgba(0, 0, 0, 0.08);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 22px 48px rgba(0, 0, 0, 0.13);
+        }
+
+        .slider-frame {
+            position: relative;
+            overflow: hidden;
+            background: #ececec;
+        }
+
+        .slider-track {
+            display: flex;
+            transition: transform 0.55s ease;
+        }
+
+        .slider-track img {
+            width: 100%;
+            height: 230px;
+            flex: 0 0 100%;
+            object-fit: cover;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            z-index: 3;
+            display: grid;
+            width: 36px;
+            height: 36px;
+            place-items: center;
+            border: 1px solid rgba(17, 17, 17, 0.1);
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.86);
+            color: var(--ink);
+            transform: translateY(-50%);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.12);
+        }
+
+        .slider-btn.prev { left: 10px; }
+        .slider-btn.next { right: 10px; }
+
+        .project-body {
+            padding: 20px;
+        }
+
+        .project-body h3 {
+            color: var(--ink);
+            font-weight: 900;
+        }
+
+        .project-body p {
+            min-height: 78px;
+            margin: 10px 0 16px;
+            color: var(--muted);
+            font-size: 0.92rem;
+            line-height: 1.65;
+        }
+
+        .project-actions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .top-actions {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 30px;
+        }
+
+        @media (min-width: 992px) {
+            .navbar-collapse {
+                display: flex !important;
+                flex-basis: auto;
+                height: auto !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .navbar-toggler {
+                display: none !important;
+            }
+
+            .navbar-nav {
+                flex-direction: row !important;
+                justify-content: flex-end;
+            }
+        }
+
+        @media (max-width: 1100px) {
+            .projects-grid {
+                grid-template-columns: repeat(2, minmax(0, 1fr));
+            }
+        }
+
+        @media (max-width: 991px) {
+            .navbar {
+                top: 10px !important;
+            }
+
+            .navbar-collapse {
+                display: none !important;
+                margin-top: 12px;
+                border-top: 1px solid rgba(17, 17, 17, 0.08);
+                padding-top: 12px;
+                background: rgba(255, 255, 255, 0.98);
+                border-radius: 0 0 14px 14px;
+            }
+
+            #navbarNav.portfolio-menu-open {
+                display: block !important;
+                height: auto !important;
+                opacity: 1 !important;
+                visibility: visible !important;
+            }
+
+            .navbar-nav {
+                align-items: flex-start;
+                width: 100%;
+                gap: 6px;
+            }
+
+            .nav-link {
+                width: 100%;
+                display: block;
+                color: #111111 !important;
+                border-radius: 10px;
+                padding: 0.75rem 0.9rem !important;
+            }
+        }
+
+        @media (max-width: 720px) {
+            .page-panel {
+                padding: 112px 18px 46px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-body p {
+                min-height: auto;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-3">
+            <a class="navbar-brand" href="index.html#home">K<span class="brand-dot">.</span> FALL</a>
+            <button class="navbar-toggler" id="portfolioMenuButton" type="button" aria-controls="navbarNav" aria-expanded="false" aria-label="Ouvrir le menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html#home">Accueil</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#about">À propos</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#skills">Compétences</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#projects">GitHub</a></li>
+                    <li class="nav-item"><a class="nav-link" href="realisations.html">Réalisations</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#cv">CV</a></li>
+                    <li class="nav-item"><a class="nav-link" href="index.html#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <main class="page-panel">
+        <div class="section-title">
+            <h1>Mes <span>Réalisations</span></h1>
+            <p>Toutes les interfaces et applications réalisées pendant mes projets académiques.</p>
+        </div>
+
+        <div class="top-actions">
+            <a href="index.html#realisations" class="btn-ghost"><i class="fas fa-arrow-left"></i>Retour au portfolio</a>
+        </div>
+
+        <div class="projects-grid">
+            <article class="project-card">
+                <div class="slider-frame">
+                    <div class="slider-track" id="slider-projet1">
+                        <img src="assets/gesEntreprise/E1.png" alt="Gestion Entreprise">
+                        <img src="assets/gesEntreprise/image.png" alt="Gestion Entreprise">
+                        <img src="assets/gesEntreprise/image copy.png" alt="Gestion Entreprise">
+                        <img src="assets/gesEntreprise/image copy 2.png" alt="Gestion Entreprise">
+                        <img src="assets/gesEntreprise/image copy 3.png" alt="Gestion Entreprise">
+                        <img src="assets/gesEntreprise/image copy 4.png" alt="Gestion Entreprise">
+                    </div>
+                    <button class="slider-btn prev" onclick="prevSlide('projet1')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="nextSlide('projet1')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3>Gestion Entreprise</h3>
+                    <p>Application complète pour gérer entreprises, employés, pointages et congés avec Tailwind, TypeScript, React et Node.js.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        <a href="https://github.com/KhadidiatouF/GESTION_ENTREPRISE_" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="slider-frame">
+                    <div class="slider-track" id="slider-projet2">
+                        <img src="assets/gesCargo/image.png" alt="Gestion Cargaison">
+                        <img src="assets/gesCargo/image copy.png" alt="Gestion Cargaison">
+                        <img src="assets/gesCargo/image copy 2.png" alt="Gestion Cargaison">
+                        <img src="assets/gesCargo/image copy 3.png" alt="Gestion Cargaison">
+                        <img src="assets/gesCargo/image copy 4.png" alt="Gestion Cargaison">
+                    </div>
+                    <button class="slider-btn prev" onclick="prevSlide('projet2')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="nextSlide('projet2')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3>Gestion Cargaison</h3>
+                    <p>Gestion des colis envoyés par voies maritimes, aériennes et terrestres avec suivi, Tailwind, TypeScript et JSON Server.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        <a href="https://github.com/KhadidiatouF/GesCargo.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="slider-frame">
+                    <div class="slider-track" id="slider-projet3">
+                        <img src="assets/gesTache/image.png" alt="Gestion des Taches">
+                        <img src="assets/gesTache/image copy.png" alt="Gestion des Taches">
+                        <img src="assets/gesTache/image copy 2.png" alt="Gestion des Taches">
+                        <img src="assets/gesTache/image copy 3.png" alt="Gestion des Taches">
+                    </div>
+                    <button class="slider-btn prev" onclick="prevSlide('projet3')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="nextSlide('projet3')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3>Gestion des Tâches</h3>
+                    <p>Application de gestion des tâches de type todolist avec Node.js, Tailwind et React.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        <a href="https://github.com/KhadidiatouF/BackFrontTODO.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="slider-frame">
+                    <div class="slider-track" id="slider-projet4">
+                        <img src="assets/Maxit/image copy 4.png" alt="Gestion des Apprenants">
+                        <img src="assets/Maxit/image copy 5.png" alt="Gestion des Apprenants">
+                        <img src="assets/Maxit/image copy 6.png" alt="Gestion des Apprenants">
+                        <img src="assets/Maxit/image copy 7.png" alt="Gestion des Apprenants">
+                    </div>
+                    <button class="slider-btn prev" onclick="prevSlide('projet4')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="nextSlide('projet4')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3>Gestion des Apprenants</h3>
+                    <p>Application de gestion des apprenants de ODC avec PHP et JSON Server.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        <a href="#" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="slider-frame">
+                    <div class="slider-track" id="slider-projet5">
+                        <img src="assets/Whatsapp/image.png" alt="Clonage Whatsapp">
+                        <img src="assets/Whatsapp/image copy.png" alt="Clonage Whatsapp">
+                        <img src="assets/Whatsapp/image copy 2.png" alt="Clonage Whatsapp">
+                        <img src="assets/Whatsapp/image copy 3.png" alt="Clonage Whatsapp">
+                    </div>
+                    <button class="slider-btn prev" onclick="prevSlide('projet5')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="nextSlide('projet5')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3>Clonage WhatsApp</h3>
+                    <p>Projet de clonage de l'application WhatsApp avec interface de messagerie.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        <a href="https://github.com/KhadidiatouF/PROJET-WHATSAPPNEW.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                    </div>
+                </div>
+            </article>
+
+            <article class="project-card">
+                <div class="slider-frame">
+                    <div class="slider-track" id="slider-projet6">
+                        <img src="assets/Grain&Cereal/image.png" alt="Grain et Cereale">
+                        <img src="assets/Grain&Cereal/image copy.png" alt="Grain et Cereale">
+                        <img src="assets/Grain&Cereal/image copy 2.png" alt="Grain et Cereale">
+                        <img src="assets/Grain&Cereal/image copy 3.png" alt="Grain et Cereale">
+                    </div>
+                    <button class="slider-btn prev" onclick="prevSlide('projet6')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
+                    <button class="slider-btn next" onclick="nextSlide('projet6')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
+                </div>
+                <div class="project-body">
+                    <h3>Grain & Céréale</h3>
+                    <p>Site vitrine de présentation de produit pour prise de masse.</p>
+                    <div class="project-actions">
+                        <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        <a href="https://github.com/KhadidiatouF/Grain-Cereal.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                    </div>
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <script>
+        const menuButton = document.getElementById('portfolioMenuButton');
+        const navbarCollapse = document.getElementById('navbarNav');
+
+        function closePortfolioMenu() {
+            navbarCollapse.classList.remove('portfolio-menu-open', 'show');
+            menuButton.setAttribute('aria-expanded', 'false');
+        }
+
+        menuButton.addEventListener('click', () => {
+            const isOpen = navbarCollapse.classList.toggle('portfolio-menu-open');
+            navbarCollapse.classList.toggle('show', isOpen);
+            menuButton.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.querySelectorAll('.nav-link').forEach((link) => {
+            link.addEventListener('click', closePortfolioMenu);
+        });
+
+        const sliders = {};
+
+        function setSlide(id, direction) {
+            const slider = document.getElementById(`slider-${id}`);
+            if (!slider) return;
+            const total = slider.children.length;
+            sliders[id] = (sliders[id] || 0) + direction;
+            if (sliders[id] >= total) sliders[id] = 0;
+            if (sliders[id] < 0) sliders[id] = total - 1;
+            slider.style.transform = `translateX(-${sliders[id] * 100}%)`;
+        }
+
+        function nextSlide(id) {
+            setSlide(id, 1);
+        }
+
+        function prevSlide(id) {
+            setSlide(id, -1);
+        }
+
+        setInterval(() => {
+            ['projet1', 'projet2', 'projet3', 'projet4', 'projet5', 'projet6'].forEach(nextSlide);
+        }, 5000);
+    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
