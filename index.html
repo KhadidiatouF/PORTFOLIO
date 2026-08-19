@@ -578,10 +578,45 @@
             display: none;
         }
 
-        .realisations-actions {
+        .projects-grid > .project-card {
+            display: none;
+        }
+
+        .projects-grid > .project-card.is-visible {
+            display: block;
+        }
+
+        .projects-pager {
             display: flex;
+            align-items: center;
             justify-content: center;
+            gap: 14px;
             margin-top: 30px;
+        }
+
+        .projects-pager button {
+            display: grid;
+            width: 46px;
+            height: 46px;
+            place-items: center;
+            border: 1px solid var(--ink);
+            border-radius: 50%;
+            background: var(--ink);
+            color: var(--white);
+            box-shadow: 0 14px 25px rgba(17, 17, 17, 0.2);
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .projects-pager button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 18px 34px rgba(17, 17, 17, 0.18);
+        }
+
+        .projects-pager span {
+            min-width: 58px;
+            color: var(--ink);
+            font-weight: 900;
+            text-align: center;
         }
 
         .project-card {
@@ -605,10 +640,20 @@
             transition: transform 0.55s ease;
         }
 
-        .slider-track img {
+        .project-shot-link {
+            display: block;
+            width: 100%;
+            flex: 0 0 100%;
+        }
+
+        .slider-track > img {
+            flex: 0 0 100%;
+        }
+
+        .slider-track img,
+        .project-shot-link img {
             width: 100%;
             height: 220px;
-            flex: 0 0 100%;
             object-fit: cover;
         }
 
@@ -1025,12 +1070,12 @@
                 <article class="project-card home-extra">
                     <div class="slider-frame">
                         <div class="slider-track" id="slider-projet1">
-                            <img src="assets/gesEntreprise/E1.png" alt="Gestion Entreprise">
-                            <img src="assets/gesEntreprise/image.png" alt="Gestion Entreprise">
-                            <img src="assets/gesEntreprise/image copy.png" alt="Gestion Entreprise">
-                            <img src="assets/gesEntreprise/image copy 2.png" alt="Gestion Entreprise">
-                            <img src="assets/gesEntreprise/image copy 3.png" alt="Gestion Entreprise">
-                            <img src="assets/gesEntreprise/image copy 4.png" alt="Gestion Entreprise">
+                            <a class="project-shot-link" href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/gesEntreprise/E1.png" alt="Gestion Entreprise"></a>
+                            <a class="project-shot-link" href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/gesEntreprise/image.png" alt="Gestion Entreprise"></a>
+                            <a class="project-shot-link" href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/gesEntreprise/image copy.png" alt="Gestion Entreprise"></a>
+                            <a class="project-shot-link" href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/gesEntreprise/image copy 2.png" alt="Gestion Entreprise"></a>
+                            <a class="project-shot-link" href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/gesEntreprise/image copy 3.png" alt="Gestion Entreprise"></a>
+                            <a class="project-shot-link" href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/gesEntreprise/image copy 4.png" alt="Gestion Entreprise"></a>
                         </div>
                         <button class="slider-btn prev" onclick="prevSlide('projet1')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
                         <button class="slider-btn next" onclick="nextSlide('projet1')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
@@ -1039,7 +1084,7 @@
                         <h3>Gestion Entreprise</h3>
                         <p>Application complète pour gérer entreprises, employés, pointages et congés avec Tailwind, TypeScript, React et Node.js.</p>
                         <div class="project-actions">
-                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://gestion-entreprise.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
                             <a href="https://github.com/KhadidiatouF/GESTION_ENTREPRISE_" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
@@ -1091,10 +1136,10 @@
                 <article class="project-card">
                     <div class="slider-frame">
                         <div class="slider-track" id="slider-projet4">
-                            <img src="assets/Maxit/image copy 4.png" alt="Gestion des Apprenants">
-                            <img src="assets/Maxit/image copy 5.png" alt="Gestion des Apprenants">
-                            <img src="assets/Maxit/image copy 6.png" alt="Gestion des Apprenants">
-                            <img src="assets/Maxit/image copy 7.png" alt="Gestion des Apprenants">
+                            <a class="project-shot-link" href="https://maxitnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Maxit/image copy 4.png" alt="Gestion des Apprenants"></a>
+                            <a class="project-shot-link" href="https://maxitnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Maxit/image copy 5.png" alt="Gestion des Apprenants"></a>
+                            <a class="project-shot-link" href="https://maxitnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Maxit/image copy 6.png" alt="Gestion des Apprenants"></a>
+                            <a class="project-shot-link" href="https://maxitnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Maxit/image copy 7.png" alt="Gestion des Apprenants"></a>
                         </div>
                         <button class="slider-btn prev" onclick="prevSlide('projet4')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
                         <button class="slider-btn next" onclick="nextSlide('projet4')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
@@ -1103,8 +1148,8 @@
                         <h3>Gestion des Apprenants</h3>
                         <p>Application de gestion des apprenants de ODC avec PHP et JSON Server.</p>
                         <div class="project-actions">
-                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
-                            <a href="#" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
+                            <a href="https://maxitnew.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://github.com/KhadidiatouF/maxitnew" target="_blank" rel="noopener noreferrer" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
                 </article>
@@ -1112,10 +1157,10 @@
                 <article class="project-card">
                     <div class="slider-frame">
                         <div class="slider-track" id="slider-projet5">
-                            <img src="assets/Whatsapp/image.png" alt="Clonage Whatsapp">
-                            <img src="assets/Whatsapp/image copy.png" alt="Clonage Whatsapp">
-                            <img src="assets/Whatsapp/image copy 2.png" alt="Clonage Whatsapp">
-                            <img src="assets/Whatsapp/image copy 3.png" alt="Clonage Whatsapp">
+                            <a class="project-shot-link" href="https://projet-whatsappnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Whatsapp/image.png" alt="Clonage Whatsapp"></a>
+                            <a class="project-shot-link" href="https://projet-whatsappnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Whatsapp/image copy.png" alt="Clonage Whatsapp"></a>
+                            <a class="project-shot-link" href="https://projet-whatsappnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Whatsapp/image copy 2.png" alt="Clonage Whatsapp"></a>
+                            <a class="project-shot-link" href="https://projet-whatsappnew.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Whatsapp/image copy 3.png" alt="Clonage Whatsapp"></a>
                         </div>
                         <button class="slider-btn prev" onclick="prevSlide('projet5')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
                         <button class="slider-btn next" onclick="nextSlide('projet5')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
@@ -1124,7 +1169,7 @@
                         <h3>Clonage WhatsApp</h3>
                         <p>Projet de clonage de l'application WhatsApp avec interface de messagerie.</p>
                         <div class="project-actions">
-                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://projet-whatsappnew.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
                             <a href="https://github.com/KhadidiatouF/PROJET-WHATSAPPNEW.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
@@ -1133,10 +1178,10 @@
                 <article class="project-card">
                     <div class="slider-frame">
                         <div class="slider-track" id="slider-projet6">
-                            <img src="assets/Grain&Cereal/image.png" alt="Grain et Cereale">
-                            <img src="assets/Grain&Cereal/image copy.png" alt="Grain et Cereale">
-                            <img src="assets/Grain&Cereal/image copy 2.png" alt="Grain et Cereale">
-                            <img src="assets/Grain&Cereal/image copy 3.png" alt="Grain et Cereale">
+                            <a class="project-shot-link" href="https://grain-cereal.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Grain&Cereal/image.png" alt="Grain et Cereale"></a>
+                            <a class="project-shot-link" href="https://grain-cereal.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Grain&Cereal/image copy.png" alt="Grain et Cereale"></a>
+                            <a class="project-shot-link" href="https://grain-cereal.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Grain&Cereal/image copy 2.png" alt="Grain et Cereale"></a>
+                            <a class="project-shot-link" href="https://grain-cereal.vercel.app" target="_blank" rel="noopener noreferrer"><img src="assets/Grain&Cereal/image copy 3.png" alt="Grain et Cereale"></a>
                         </div>
                         <button class="slider-btn prev" onclick="prevSlide('projet6')" aria-label="Image précédente"><i class="fas fa-chevron-left"></i></button>
                         <button class="slider-btn next" onclick="nextSlide('projet6')" aria-label="Image suivante"><i class="fas fa-chevron-right"></i></button>
@@ -1145,14 +1190,136 @@
                         <h3>Grain & Céréale</h3>
                         <p>Site vitrine de présentation de produit pour prise de masse.</p>
                         <div class="project-actions">
-                            <a href="#" target="_blank" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                            <a href="https://grain-cereal.vercel.app" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
                             <a href="https://github.com/KhadidiatouF/Grain-Cereal.git" target="_blank" class="btn-ghost"><i class="fab fa-github"></i>Code GitHub</a>
                         </div>
                     </div>
                 </article>
+
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://fashoco-resto.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/Fashoco/hero.png" alt="Fashoco Resto"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Fashoco Resto</h3>
+                        <p>Interface de restaurant en ligne pour parcourir le menu, commander et suivre une livraison.</p>
+                        <div class="project-actions">
+                            <a href="https://fashoco-resto.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project-rank="1">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://portfolio-lena-delta.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/PortfolioLena/hero.png" alt="Portfolio Lena Habib"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Portfolio Lena Habib</h3>
+                        <p>Portfolio créatif pour présenter une créatrice digitale, ses contenus, sa galerie et ses collaborations.</p>
+                        <div class="project-actions">
+                            <a href="https://portfolio-lena-delta.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://aura-feminine.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/AuraFeminine/hero.png" alt="Aura Feminine"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Aura Féminine</h3>
+                        <p>Site de marque mode mettant en avant une collection féminine, élégante et contemporaine.</p>
+                        <div class="project-actions">
+                            <a href="https://aura-feminine.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project-rank="3">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://jamih-scent.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/JamihScent/hero.png" alt="Jamih Scent"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Jamih Scent</h3>
+                        <p>Site vitrine pour une marque de parfums, avec une présentation soignée des produits et de l'univers de marque.</p>
+                        <div class="project-actions">
+                            <a href="https://jamih-scent.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://golearnplateform.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/GoLearn/hero.png" alt="GoLearn Platform"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>GoLearn Platform</h3>
+                        <p>Plateforme d'apprentissage pour découvrir des formations, développer des compétences et suivre un parcours.</p>
+                        <div class="project-actions">
+                            <a href="https://golearnplateform.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-project-rank="2">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://john-lakh.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/JohnLakh/hero.png" alt="John Lakh"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>John Lakh</h3>
+                        <p>Site vitrine moderne pour présenter une activité, un univers visuel et des informations de contact.</p>
+                        <div class="project-actions">
+                            <a href="https://john-lakh.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://ice-cream-dream.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/IceCreamDream/hero.png" alt="Ice Cream Dream"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Ice Cream Dream</h3>
+                        <p>Site gourmand autour des glaces artisanales, avec présentation des saveurs et de l'expérience client.</p>
+                        <div class="project-actions">
+                            <a href="https://ice-cream-dream.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card">
+                    <div class="slider-frame">
+                        <div class="slider-track">
+                            <a class="project-shot-link" href="https://portfolio-zey.vercel.app/" target="_blank" rel="noopener noreferrer"><img src="assets/PortfolioZey/hero.png" alt="Portfolio Zey"></a>
+                        </div>
+                    </div>
+                    <div class="project-body">
+                        <h3>Portfolio Zey</h3>
+                        <p>Portfolio personnel pour présenter un profil, des réalisations et des points de contact professionnels.</p>
+                        <div class="project-actions">
+                            <a href="https://portfolio-zey.vercel.app/" target="_blank" rel="noopener noreferrer" class="btn-ink"><i class="fas fa-arrow-up-right-from-square"></i>Voir en ligne</a>
+                        </div>
+                    </div>
+                </article>
             </div>
-            <div class="realisations-actions">
-                <a href="realisations.html" class="btn-ink"><i class="fas fa-table-cells-large"></i>Voir plus</a>
+            <div class="projects-pager" aria-label="Navigation des réalisations">
+                <button type="button" data-projects-prev aria-label="Réalisations précédentes"><i class="fas fa-chevron-left"></i></button>
+                <span data-projects-status>1 / 1</span>
+                <button type="button" data-projects-next aria-label="Réalisations suivantes"><i class="fas fa-chevron-right"></i></button>
             </div>
         </section>
 
@@ -1312,8 +1479,51 @@
             setSlide(id, -1);
         }
 
+        function initProjectPagination() {
+            document.querySelectorAll('.projects-grid').forEach((grid) => {
+                const cards = Array.from(grid.querySelectorAll(':scope > .project-card')).sort((firstCard, secondCard) => {
+                    const firstRank = Number(firstCard.dataset.projectRank || Number.MAX_SAFE_INTEGER);
+                    const secondRank = Number(secondCard.dataset.projectRank || Number.MAX_SAFE_INTEGER);
+                    return firstRank - secondRank;
+                });
+                cards.forEach((card) => grid.appendChild(card));
+                const pager = grid.nextElementSibling?.classList.contains('projects-pager') ? grid.nextElementSibling : null;
+                if (!pager) return;
+
+                const pageSize = 6;
+                const totalPages = Math.ceil(cards.length / pageSize);
+                const prevButton = pager.querySelector('[data-projects-prev]');
+                const nextButton = pager.querySelector('[data-projects-next]');
+                const status = pager.querySelector('[data-projects-status]');
+                let page = 0;
+
+                function renderProjectsPage() {
+                    const firstVisible = page * pageSize;
+                    const lastVisible = firstVisible + pageSize;
+                    cards.forEach((card, index) => {
+                        card.classList.toggle('is-visible', index >= firstVisible && index < lastVisible);
+                    });
+                    status.textContent = `${page + 1} / ${totalPages}`;
+                    pager.hidden = totalPages <= 1;
+                }
+
+                prevButton.addEventListener('click', () => {
+                    page = page === 0 ? totalPages - 1 : page - 1;
+                    renderProjectsPage();
+                });
+
+                nextButton.addEventListener('click', () => {
+                    page = page === totalPages - 1 ? 0 : page + 1;
+                    renderProjectsPage();
+                });
+
+                renderProjectsPage();
+            });
+        }
+
         document.addEventListener('DOMContentLoaded', () => {
             typeWriter();
+            initProjectPagination();
             document.querySelector('#home').classList.add('visible');
         });
 
